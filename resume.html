@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanvir Ahmed - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        .resume-container {
+            max-width: 8.5in;
+            height: 11in;
+            margin: 20px auto;
+            padding: 40px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-size: 11px;
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #E2C2B3;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .header h1 {
+            font-size: 24px;
+            color: #403234;
+            margin-bottom: 5px;
+        }
+        
+        .contact-info {
+            font-size: 10px;
+            color: #666;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-info a {
+            color: #E2C2B3;
+            text-decoration: none;
+        }
+        
+        .section {
+            margin-bottom: 15px;
+        }
+        
+        .section-title {
+            font-size: 13px;
+            font-weight: bold;
+            color: #403234;
+            border-bottom: 2px solid #E2C2B3;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .entry {
+            margin-bottom: 10px;
+        }
+        
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+        
+        .entry-title {
+            font-weight: bold;
+            color: #403234;
+        }
+        
+        .entry-date {
+            color: #666;
+            font-style: italic;
+        }
+        
+        .entry-subtitle {
+            color: #555;
+            font-style: italic;
+            margin-bottom: 3px;
+        }
+        
+        .entry-description {
+            margin-left: 15px;
+            color: #555;
+            font-size: 10px;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        .skill-category {
+            margin-bottom: 8px;
+        }
+        
+        .skill-category-title {
+            font-weight: bold;
+            color: #403234;
+            margin-bottom: 3px;
+        }
+        
+        .skill-items {
+            color: #555;
+            font-size: 10px;
+        }
+        
+        @media print {
+            body {
+                background-color: white;
+            }
+            .resume-container {
+                margin: 0;
+                padding: 40px;
+                box-shadow: none;
+                max-width: 100%;
+                height: auto;
+            }
+            .print-button {
+                display: none;
+            }
+        }
+        
+        .print-button {
+            display: block;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .print-button button {
+            padding: 10px 20px;
+            background-color: #E2C2B3;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #000;
+        }
+        
+        .print-button button:hover {
+            background-color: #d4a48e;
+        }
+    </style>
+</head>
+<body>
+    <div class="print-button">
+        <button onclick="window.print()">Print to PDF</button>
+    </div>
+    
+    <div class="resume-container">
+        <div class="header">
+            <h1>TANVIR AHMED</h1>
+            <div class="contact-info">
+                <span>📍 Dhaka, Bangladesh</span>
+                <span>📧 <a href="mailto:tanvir.ahmed32@northsouth.edu">tanvir.ahmed32@northsouth.edu</a></span>
+                <span>💼 <a href="https://www.linkedin.com/in/tanvir-ahmed-2b9809370/">LinkedIn</a></span>
+                <span>💻 <a href="https://github.com/minhaz-42">GitHub</a></span>
+                <span>📱 01841449894</span>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">Professional Summary</div>
+            <p style="font-size: 10px; line-height: 1.5;">
+                Passionate Computer Science student at North South University with a strong foundation in software engineering principles, algorithms, and object-oriented design. Demonstrated expertise in multiple programming languages and full-stack development. Committed to building scalable, efficient solutions and contributing to innovative software projects.
+            </p>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">Education</div>
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Bachelor of Applied Science in Computer Science</span>
+                    <span class="entry-date">2022 - 2026</span>
+                </div>
+                <div class="entry-subtitle">North South University, Dhaka, Bangladesh</div>
+                <div class="entry-description">
+                    • Focused on Software Engineering, Algorithms, and Data Structures<br>
+                    • GPA: Strong academic performance in core CS courses<br>
+                    • Relevant Coursework: Database Design, OOP, Web Development, System Design
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">Technical Skills</div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-category-title">Languages:</div>
+                    <div class="skill-items">Java, Python, C++, C, JavaScript, PHP, SQL</div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-category-title">Web Technologies:</div>
+                    <div class="skill-items">HTML5, CSS3, JavaScript, React, PHP, Laravel</div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-category-title">Databases:</div>
+                    <div class="skill-items">MySQL, PostgreSQL, MongoDB</div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-category-title">Tools & Platforms:</div>
+                    <div class="skill-items">Git, GitHub, Docker, VS Code, IntelliJ IDEA</div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-category-title">Software Practices:</div>
+                    <div class="skill-items">Agile, OOP, Design Patterns, TDD, System Design</div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-category-title">Specializations:</div>
+                    <div class="skill-items">Full-Stack Development, Backend Systems, Project Management</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">Key Projects</div>
+            
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Productivo - Project Management System</span>
+                    <span class="entry-date">2024</span>
+                </div>
+                <div class="entry-description">
+                    • Developed a comprehensive project management tool for team collaboration<br>
+                    • Technologies: Java, Software Engineering Principles, Agile Methodology<br>
+                    • Implemented efficient project tracking and resource management features
+                </div>
+            </div>
+            
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">DG Healthcare Management System</span>
+                    <span class="entry-date">2024</span>
+                </div>
+                <div class="entry-description">
+                    • Built a comprehensive healthcare management platform<br>
+                    • Technologies: HTML5, CSS3, PHP, MySQL Database<br>
+                    • Features: Patient records, appointment scheduling, medical data management
+                </div>
+            </div>
+            
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">CSE215 Java Application</span>
+                    <span class="entry-date">2024</span>
+                </div>
+                <div class="entry-description">
+                    • Developed advanced Java application demonstrating OOP principles<br>
+                    • Technologies: Java, Design Patterns, Data Structures & Algorithms<br>
+                    • Focused on clean code architecture and best practices
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">Soft Skills</div>
+            <div style="font-size: 10px; color: #555;">
+                Problem-Solving • Team Collaboration • Communication • Project Management • Critical Thinking • Time Management • Research Skills • Adaptability
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">Certifications & Additional Learning</div>
+            <div style="font-size: 10px; color: #555;">
+                • Software Engineering Principles & Best Practices<br>
+                • Full-Stack Web Development<br>
+                • Data Structures & Algorithms Specialization<br>
+                • Agile Project Management Fundamentals
+            </div>
+        </div>
+    </div>
+</body>
+</html>
