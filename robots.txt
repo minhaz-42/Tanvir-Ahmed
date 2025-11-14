@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://minhaz-42.github.io/portfolio/sitemap.xml
