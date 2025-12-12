@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tanvir Ahmed - Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,227 +14,558 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f5f5f5;
+            color: #e2e8f0;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            min-height: 100vh;
+            padding: 20px;
         }
         
         .resume-container {
             max-width: 8.5in;
-            height: 11in;
-            margin: 20px auto;
+            min-height: 11in;
+            margin: 0 auto;
             padding: 40px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 11px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .resume-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
         }
         
         .header {
             text-align: center;
-            border-bottom: 3px solid #E2C2B3;
-            padding-bottom: 15px;
-            margin-bottom: 15px;
+            border-bottom: 2px solid rgba(124, 58, 237, 0.3);
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            position: relative;
         }
         
         .header h1 {
-            font-size: 24px;
-            color: #403234;
-            margin-bottom: 5px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 36px;
+            color: #fff;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
-        .contact-info {
-            font-size: 10px;
-            color: #666;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-        
-        .contact-info a {
-            color: #E2C2B3;
-            text-decoration: none;
-        }
-        
-        .section {
+        .header h2 {
+            font-size: 16px;
+            color: #a78bfa;
+            font-weight: 500;
             margin-bottom: 15px;
         }
         
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 10px;
+            color: #cbd5e1;
+        }
+        
+        .contact-info a {
+            color: #a78bfa;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info a:hover {
+            color: #7c3aed;
+            transform: translateY(-2px);
+        }
+        
+        .section {
+            margin-bottom: 20px;
+        }
+        
         .section-title {
-            font-size: 13px;
-            font-weight: bold;
-            color: #403234;
-            border-bottom: 2px solid #E2C2B3;
-            padding-bottom: 5px;
-            margin-bottom: 10px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+            border-bottom: 2px solid rgba(124, 58, 237, 0.3);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title i {
+            color: #7c3aed;
+            font-size: 14px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
         }
         
         .entry {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            background: rgba(30, 41, 59, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 3px solid #7c3aed;
+            transition: all 0.3s ease;
+        }
+        
+        .entry:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            background: rgba(30, 41, 59, 0.5);
         }
         
         .entry-header {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 3px;
+            align-items: flex-start;
+            margin-bottom: 5px;
         }
         
         .entry-title {
-            font-weight: bold;
-            color: #403234;
+            font-weight: 600;
+            color: #fff;
+            font-size: 13px;
         }
         
         .entry-date {
-            color: #666;
+            color: #a78bfa;
             font-style: italic;
+            font-size: 10px;
+            background: rgba(124, 58, 237, 0.1);
+            padding: 3px 10px;
+            border-radius: 15px;
         }
         
         .entry-subtitle {
-            color: #555;
-            font-style: italic;
-            margin-bottom: 3px;
+            color: #94a3b8;
+            font-size: 11px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .entry-subtitle i {
+            font-size: 10px;
         }
         
         .entry-description {
-            margin-left: 15px;
-            color: #555;
+            color: #cbd5e1;
             font-size: 10px;
+            line-height: 1.6;
+        }
+        
+        .entry-description li {
+            margin-bottom: 5px;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .entry-description li::before {
+            content: '▸';
+            color: #7c3aed;
+            position: absolute;
+            left: 0;
         }
         
         .skills-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
+            gap: 15px;
         }
         
         .skill-category {
-            margin-bottom: 8px;
+            background: rgba(30, 41, 59, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         .skill-category-title {
-            font-weight: bold;
-            color: #403234;
-            margin-bottom: 3px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+        }
+        
+        .skill-category-title i {
+            color: #7c3aed;
         }
         
         .skill-items {
-            color: #555;
+            color: #cbd5e1;
             font-size: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
+        .skill-tag {
+            background: rgba(124, 58, 237, 0.1);
+            color: #a78bfa;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 9px;
+            border: 1px solid rgba(124, 58, 237, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-tag:hover {
+            background: rgba(124, 58, 237, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .soft-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .soft-skill-tag {
+            background: rgba(59, 130, 246, 0.1);
+            color: #60a5fa;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 10px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .soft-skill-tag:hover {
+            background: rgba(59, 130, 246, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .certifications {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .cert-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #cbd5e1;
+            font-size: 10px;
+        }
+        
+        .cert-item i {
+            color: #10b981;
+        }
+        
+        .action-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+        
+        .action-btn {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 5px 15px rgba(124, 58, 237, 0.3);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4);
+        }
+        
+        .action-btn.print {
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+        }
+        
+        .action-btn.back {
+            background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
         }
         
         @media print {
             body {
-                background-color: white;
+                background: white !important;
+                padding: 0;
             }
+            
             .resume-container {
                 margin: 0;
                 padding: 40px;
                 box-shadow: none;
+                border-radius: 0;
+                border: none;
                 max-width: 100%;
-                height: auto;
+                min-height: auto;
             }
-            .print-button {
+            
+            .action-buttons {
                 display: none;
             }
+            
+            .entry:hover,
+            .skill-category:hover {
+                transform: none;
+                box-shadow: none;
+            }
         }
         
-        .print-button {
-            display: block;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        
-        .print-button button {
-            padding: 10px 20px;
-            background-color: #E2C2B3;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            color: #000;
-        }
-        
-        .print-button button:hover {
-            background-color: #d4a48e;
+        @media (max-width: 768px) {
+            .resume-container {
+                padding: 25px;
+            }
+            
+            .header h1 {
+                font-size: 28px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                bottom: 10px;
+                right: 10px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="print-button">
-        <button onclick="window.print()">Print to PDF</button>
+    <div class="action-buttons">
+        <button onclick="window.print()" class="action-btn print">
+            <i class="fas fa-print"></i> Print PDF
+        </button>
+        <a href="index.html" class="action-btn back">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
     </div>
     
     <div class="resume-container">
         <div class="header">
             <h1>TANVIR AHMED</h1>
+            <h2>Software Engineer & Full-Stack Developer</h2>
             <div class="contact-info">
-                <span>📍 Dhaka, Bangladesh</span>
-                <span>📧 <a href="mailto:tanvir.ahmed32@northsouth.edu">tanvir.ahmed32@northsouth.edu</a></span>
-                <span>💼 <a href="https://www.linkedin.com/in/tanvir-ahmed-2b9809370/">LinkedIn</a></span>
-                <span>💻 <a href="https://github.com/minhaz-42">GitHub</a></span>
-                <span>📱 01841449894</span>
+                <a href="mailto:tanvir.ahmed32@northsouth.edu">
+                    <i class="fas fa-envelope"></i> tanvir.ahmed32@northsouth.edu
+                </a>
+                <a href="tel:+8801841449894">
+                    <i class="fas fa-phone"></i> +880 1841 449894
+                </a>
+                <a href="https://www.linkedin.com/in/tanvir-ahmed-2b9809370/" target="_blank">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/minhaz-42" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
             </div>
         </div>
         
         <div class="section">
-            <div class="section-title">Professional Summary</div>
-            <p style="font-size: 10px; line-height: 1.5;">
+            <div class="section-title">
+                <i class="fas fa-user"></i> Professional Summary
+            </div>
+            <p style="font-size: 11px; line-height: 1.6; color: #cbd5e1;">
                 Passionate Computer Science student at North South University with a strong foundation in software engineering principles, algorithms, and object-oriented design. Demonstrated expertise in multiple programming languages and full-stack development. Committed to building scalable, efficient solutions and contributing to innovative software projects.
             </p>
         </div>
         
         <div class="section">
-            <div class="section-title">Education</div>
+            <div class="section-title">
+                <i class="fas fa-graduation-cap"></i> Education
+            </div>
             <div class="entry">
                 <div class="entry-header">
-                    <span class="entry-title">Bachelor of Applied Science in Computer Science</span>
-                    <span class="entry-date">2022 - 2026</span>
+                    <span class="entry-title">B.Sc. Computer Science</span>
+                    <span class="entry-date">2022 - Present</span>
                 </div>
-                <div class="entry-subtitle">North South University, Dhaka, Bangladesh</div>
+                <div class="entry-subtitle">
+                    <i class="fas fa-map-marker-alt"></i> North South University, Dhaka
+                </div>
                 <div class="entry-description">
-                    • Focused on Software Engineering, Algorithms, and Data Structures<br>
-                    • GPA: Strong academic performance in core CS courses<br>
-                    • Relevant Coursework: Database Design, OOP, Web Development, System Design
+                    <ul>
+                        <li>Specializing in Software Engineering & Algorithms</li>
+                        <li>Strong foundation in Data Structures and System Design</li>
+                        <li>Core Courses: Database Design, OOP, Web Development, Discrete Math</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Higher Secondary Certificate (HSC)</span>
+                    <span class="entry-date">2019 - 2021</span>
+                </div>
+                <div class="entry-subtitle">
+                    <i class="fas fa-map-marker-alt"></i> Milestone College, Dhaka
+                </div>
+                <div class="entry-description">
+                    <ul>
+                        <li>Science Stream • Physics, Chemistry, Higher Mathematics</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="entry">
+                <div class="entry-header">
+                    <span class="entry-title">Secondary School Certificate (SSC)</span>
+                    <span class="entry-date">2014 - 2018</span>
+                </div>
+                <div class="entry-subtitle">
+                    <i class="fas fa-map-marker-alt"></i> Shibpur High School
+                </div>
+                <div class="entry-description">
+                    <ul>
+                        <li>Science Group • GPA: 5.00</li>
+                    </ul>
                 </div>
             </div>
         </div>
         
         <div class="section">
-            <div class="section-title">Technical Skills</div>
+            <div class="section-title">
+                <i class="fas fa-code"></i> Technical Skills
+            </div>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <div class="skill-category-title">Languages:</div>
-                    <div class="skill-items">Java, Python, C++, C, JavaScript, PHP, SQL</div>
+                    <div class="skill-category-title">
+                        <i class="fas fa-laptop-code"></i> Programming Languages
+                    </div>
+                    <div class="skill-items">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">SQL</span>
+                    </div>
                 </div>
+                
                 <div class="skill-category">
-                    <div class="skill-category-title">Web Technologies:</div>
-                    <div class="skill-items">HTML5, CSS3, JavaScript, React, PHP, Laravel</div>
+                    <div class="skill-category-title">
+                        <i class="fas fa-globe"></i> Web Technologies
+                    </div>
+                    <div class="skill-items">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">Laravel</span>
+                    </div>
                 </div>
+                
                 <div class="skill-category">
-                    <div class="skill-category-title">Databases:</div>
-                    <div class="skill-items">MySQL, PostgreSQL, MongoDB</div>
+                    <div class="skill-category-title">
+                        <i class="fas fa-database"></i> Databases
+                    </div>
+                    <div class="skill-items">
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                    </div>
                 </div>
+                
                 <div class="skill-category">
-                    <div class="skill-category-title">Tools & Platforms:</div>
-                    <div class="skill-items">Git, GitHub, Docker, VS Code, IntelliJ IDEA</div>
+                    <div class="skill-category-title">
+                        <i class="fas fa-tools"></i> Tools & Platforms
+                    </div>
+                    <div class="skill-items">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">IntelliJ IDEA</span>
+                    </div>
                 </div>
+                
                 <div class="skill-category">
-                    <div class="skill-category-title">Software Practices:</div>
-                    <div class="skill-items">Agile, OOP, Design Patterns, TDD, System Design</div>
+                    <div class="skill-category-title">
+                        <i class="fas fa-cogs"></i> Software Practices
+                    </div>
+                    <div class="skill-items">
+                        <span class="skill-tag">Agile</span>
+                        <span class="skill-tag">OOP</span>
+                        <span class="skill-tag">Design Patterns</span>
+                        <span class="skill-tag">TDD</span>
+                        <span class="skill-tag">System Design</span>
+                    </div>
                 </div>
+                
                 <div class="skill-category">
-                    <div class="skill-category-title">Specializations:</div>
-                    <div class="skill-items">Full-Stack Development, Backend Systems, Project Management</div>
+                    <div class="skill-category-title">
+                        <i class="fas fa-star"></i> Specializations
+                    </div>
+                    <div class="skill-items">
+                        <span class="skill-tag">Full-Stack Development</span>
+                        <span class="skill-tag">Backend Systems</span>
+                        <span class="skill-tag">Project Management</span>
+                    </div>
                 </div>
             </div>
         </div>
         
         <div class="section">
-            <div class="section-title">Key Projects</div>
+            <div class="section-title">
+                <i class="fas fa-project-diagram"></i> Key Projects
+            </div>
             
             <div class="entry">
                 <div class="entry-header">
@@ -240,9 +573,12 @@
                     <span class="entry-date">2024</span>
                 </div>
                 <div class="entry-description">
-                    • Developed a comprehensive project management tool for team collaboration<br>
-                    • Technologies: Java, Software Engineering Principles, Agile Methodology<br>
-                    • Implemented efficient project tracking and resource management features
+                    <ul>
+                        <li>Developed a comprehensive project management tool for team collaboration</li>
+                        <li>Technologies: Java, Software Engineering Principles, Agile Methodology</li>
+                        <li>Implemented efficient project tracking and resource management features</li>
+                        <li><a href="https://github.com/minhaz-42/CSE327_Productivo" target="_blank" style="color: #a78bfa; text-decoration: none;">View on GitHub →</a></li>
+                    </ul>
                 </div>
             </div>
             
@@ -252,9 +588,12 @@
                     <span class="entry-date">2024</span>
                 </div>
                 <div class="entry-description">
-                    • Built a comprehensive healthcare management platform<br>
-                    • Technologies: HTML5, CSS3, PHP, MySQL Database<br>
-                    • Features: Patient records, appointment scheduling, medical data management
+                    <ul>
+                        <li>Built a comprehensive healthcare management platform</li>
+                        <li>Technologies: HTML5, CSS3, PHP, MySQL Database</li>
+                        <li>Features: Patient records, appointment scheduling, medical data management</li>
+                        <li><a href="https://github.com/minhaz-42/cse311-project-on---DG-health-care-management-system-using-html-css-php" target="_blank" style="color: #a78bfa; text-decoration: none;">View on GitHub →</a></li>
+                    </ul>
                 </div>
             </div>
             
@@ -264,27 +603,53 @@
                     <span class="entry-date">2024</span>
                 </div>
                 <div class="entry-description">
-                    • Developed advanced Java application demonstrating OOP principles<br>
-                    • Technologies: Java, Design Patterns, Data Structures & Algorithms<br>
-                    • Focused on clean code architecture and best practices
+                    <ul>
+                        <li>Developed advanced Java application demonstrating OOP principles</li>
+                        <li>Technologies: Java, Design Patterns, Data Structures & Algorithms</li>
+                        <li>Focused on clean code architecture and best practices</li>
+                        <li><a href="https://github.com/minhaz-42/cse215-project-using-java" target="_blank" style="color: #a78bfa; text-decoration: none;">View on GitHub →</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
         
         <div class="section">
-            <div class="section-title">Soft Skills</div>
-            <div style="font-size: 10px; color: #555;">
-                Problem-Solving • Team Collaboration • Communication • Project Management • Critical Thinking • Time Management • Research Skills • Adaptability
+            <div class="section-title">
+                <i class="fas fa-users"></i> Soft Skills
+            </div>
+            <div class="soft-skills">
+                <span class="soft-skill-tag">Problem-Solving</span>
+                <span class="soft-skill-tag">Team Collaboration</span>
+                <span class="soft-skill-tag">Communication</span>
+                <span class="soft-skill-tag">Project Management</span>
+                <span class="soft-skill-tag">Critical Thinking</span>
+                <span class="soft-skill-tag">Time Management</span>
+                <span class="soft-skill-tag">Research Skills</span>
+                <span class="soft-skill-tag">Adaptability</span>
             </div>
         </div>
         
         <div class="section">
-            <div class="section-title">Certifications & Additional Learning</div>
-            <div style="font-size: 10px; color: #555;">
-                • Software Engineering Principles & Best Practices<br>
-                • Full-Stack Web Development<br>
-                • Data Structures & Algorithms Specialization<br>
-                • Agile Project Management Fundamentals
+            <div class="section-title">
+                <i class="fas fa-certificate"></i> Certifications & Learning
+            </div>
+            <div class="certifications">
+                <div class="cert-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Software Engineering Principles & Best Practices</span>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Full-Stack Web Development Specialization</span>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Data Structures & Algorithms Mastery</span>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Agile Project Management Fundamentals</span>
+                </div>
             </div>
         </div>
     </div>
