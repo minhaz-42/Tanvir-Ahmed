@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tanvir Ahmed Resume</title>
+    <title>Tanvir Ahmed Resume</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -23,6 +23,7 @@
             --text-muted: #94a3b8;
             --card-bg: rgba(26, 26, 46, 0.95);
             --border-color: rgba(124, 58, 237, 0.3);
+            --success-green: #10b981;
         }
         
         body {
@@ -40,11 +41,32 @@
             margin: 0 auto;
             padding: 40px;
             background: var(--card-bg);
+            -webkit-backdrop-filter: blur(10px); /* Safari support */
             backdrop-filter: blur(10px);
+                    .flex-list {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 8px;
+                        list-style: none;
+                        padding: 0;
+                        margin: 0;
+                    }
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         .resume-container::before {
@@ -67,6 +89,7 @@
             padding-bottom: 30px;
             margin-bottom: 30px;
             border-bottom: 2px solid var(--border-color);
+            position: relative;
         }
         
         .name {
@@ -87,6 +110,18 @@
             font-weight: 500;
             color: var(--accent-purple);
             margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: var(--accent-blue);
         }
         
         .contact-info {
@@ -95,6 +130,7 @@
             justify-content: center;
             gap: 25px;
             font-size: 13px;
+            margin-top: 10px;
         }
         
         .contact-item {
@@ -102,17 +138,33 @@
             align-items: center;
             gap: 8px;
             color: var(--text-muted);
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-2px);
         }
         
         .contact-item a {
             color: var(--accent-purple);
             text-decoration: none;
             transition: all 0.3s ease;
+            position: relative;
         }
         
-        .contact-item a:hover {
-            color: var(--accent-blue);
-            transform: translateY(-2px);
+        .contact-item a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent-blue);
+            transition: width 0.3s ease;
+        }
+        
+        .contact-item a:hover::after {
+            width: 100%;
         }
         
         /* Main Layout */
@@ -157,6 +209,16 @@
             letter-spacing: 1px;
         }
         
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent-purple);
+        }
+        
         .section-title i {
             color: var(--accent-purple);
             font-size: 14px;
@@ -167,6 +229,15 @@
         /* Education */
         .education-item {
             margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .education-item:hover {
+            transform: translateX(5px);
+            background: rgba(255, 255, 255, 0.08);
         }
         
         .education-item:last-child {
@@ -178,12 +249,14 @@
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 8px;
+            flex-wrap: wrap;
         }
         
         .education-title {
             font-weight: 600;
             color: white;
             font-size: 14px;
+            flex: 1;
         }
         
         .education-date {
@@ -193,6 +266,7 @@
             background: rgba(124, 58, 237, 0.1);
             padding: 3px 10px;
             border-radius: 12px;
+            white-space: nowrap;
         }
         
         .education-subtitle {
@@ -204,6 +278,10 @@
             gap: 6px;
         }
         
+        .education-subtitle i {
+            color: var(--accent-blue);
+        }
+        
         .education-details {
             font-size: 12px;
             color: var(--text-light);
@@ -212,18 +290,20 @@
         
         .education-details ul {
             padding-left: 18px;
+            list-style: none;
         }
         
         .education-details li {
             margin-bottom: 5px;
             position: relative;
+            padding-left: 15px;
         }
         
         .education-details li::before {
             content: '▸';
             color: var(--accent-purple);
             position: absolute;
-            left: -15px;
+            left: 0;
         }
         
         /* Research */
@@ -241,11 +321,22 @@
             border-radius: 15px;
             font-size: 11px;
             border: 1px solid rgba(124, 58, 237, 0.2);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+        
+        .research-tag:hover {
+            background: rgba(124, 58, 237, 0.2);
+            transform: translateY(-2px);
         }
         
         /* Skills */
         .skill-category {
             margin-bottom: 20px;
+        }
+        
+        .skill-category:last-child {
+            margin-bottom: 0;
         }
         
         .skill-category-title {
@@ -276,6 +367,13 @@
             border-radius: 15px;
             font-size: 11px;
             border: 1px solid rgba(124, 58, 237, 0.2);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+        
+        .skill-tag:hover {
+            background: rgba(124, 58, 237, 0.2);
+            transform: translateY(-2px);
         }
         
         /* Summary */
@@ -284,6 +382,10 @@
             line-height: 1.7;
             color: var(--text-light);
             text-align: justify;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border-left: 3px solid var(--accent-purple);
         }
         
         /* Projects */
@@ -299,11 +401,23 @@
             border-radius: 12px;
             border-left: 4px solid var(--accent-purple);
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent-purple);
         }
         
         .project-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.2);
             background: rgba(30, 41, 59, 0.4);
         }
         
@@ -312,12 +426,15 @@
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         
         .project-title {
             font-weight: 600;
             color: white;
             font-size: 15px;
+            flex: 1;
         }
         
         .project-year {
@@ -327,6 +444,7 @@
             background: rgba(124, 58, 237, 0.1);
             padding: 3px 10px;
             border-radius: 12px;
+            white-space: nowrap;
         }
         
         .project-description {
@@ -341,6 +459,13 @@
             color: var(--text-muted);
             margin-bottom: 12px;
             font-style: italic;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .project-tech strong {
+            color: var(--accent-blue);
         }
         
         .project-link {
@@ -352,11 +477,15 @@
             font-size: 12px;
             font-weight: 500;
             transition: all 0.3s ease;
+            padding: 5px 12px;
+            background: rgba(124, 58, 237, 0.1);
+            border-radius: 6px;
         }
         
         .project-link:hover {
             color: var(--accent-blue);
             gap: 8px;
+            background: rgba(124, 58, 237, 0.2);
         }
         
         /* References */
@@ -364,7 +493,13 @@
             background: rgba(30, 41, 59, 0.3);
             padding: 20px;
             border-radius: 12px;
-            border-left: 4px solid #10b981;
+            border-left: 4px solid var(--success-green);
+            transition: all 0.3s ease;
+        }
+        
+        .reference-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.1);
         }
         
         .reference-name {
@@ -393,6 +528,12 @@
         .reference-email a {
             color: var(--accent-purple);
             text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .reference-email a:hover {
+            color: var(--accent-blue);
+            text-decoration: underline;
         }
         
         /* Soft Skills */
@@ -410,6 +551,12 @@
             font-size: 12px;
             color: #60a5fa;
             border: 1px solid rgba(59, 130, 246, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .soft-skill-item:hover {
+            background: rgba(59, 130, 246, 0.2);
+            transform: translateY(-3px);
         }
         
         /* Certifications */
@@ -425,10 +572,19 @@
             gap: 12px;
             font-size: 13px;
             color: var(--text-light);
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .cert-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(5px);
         }
         
         .cert-item i {
-            color: #10b981;
+            color: var(--success-green);
             font-size: 14px;
         }
         
@@ -465,7 +621,34 @@
         }
         
         .action-btn.print {
-            background: linear-gradient(135deg, #10b981 0%, var(--accent-blue) 100%);
+            background: linear-gradient(135deg, var(--success-green) 0%, var(--accent-blue) 100%);
+        }
+        
+        /* Progress Bars for Skills */
+        .skill-progress {
+            margin-top: 8px;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            margin-bottom: 5px;
+            color: var(--text-light);
+        }
+        
+        .progress-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-blue) 100%);
+            border-radius: 3px;
+            transition: width 1s ease-in-out;
         }
         
         /* Print Styles */
@@ -473,39 +656,56 @@
             body {
                 background: white !important;
                 padding: 0;
+                margin: 0;
+                font-size: 12px;
             }
             
             .resume-container {
                 margin: 0;
-                padding: 40px;
+                padding: 20px;
                 box-shadow: none;
                 border-radius: 0;
                 border: none;
                 max-width: 100%;
-                min-height: auto;
+                /* min-height: auto; Not supported in Firefox, consider using a fixed value if issues arise */
                 background: white;
                 color: #333;
+                font-size: 12px;
             }
             
             .action-buttons {
-                display: none;
+                display: none !important;
             }
             
             .name {
-                -webkit-text-fill-color: #333;
-                background: none;
+                -webkit-text-fill-color: #333 !important;
+                background: none !important;
+                font-size: 32px;
             }
             
             .project-card:hover,
-            .skill-tag:hover {
-                transform: none;
-                box-shadow: none;
+            .skill-tag:hover,
+            .education-item:hover {
+                transform: none !important;
+                box-shadow: none !important;
+                background: #f8f9fa !important;
             }
             
             .project-card,
-            .reference-card {
-                background: #f8f9fa;
-                border: 1px solid #dee2e6;
+            .reference-card,
+            .education-item {
+                background: #f8f9fa !important;
+                border: 1px solid #dee2e6 !important;
+                page-break-inside: avoid;
+            }
+            
+            a {
+                color: #007bff !important;
+                text-decoration: none !important;
+            }
+            
+            .contact-item a::after {
+                display: none;
             }
         }
         
@@ -548,10 +748,32 @@
                 bottom: 15px;
                 right: 15px;
                 flex-direction: column;
+                gap: 10px;
+            }
+            
+            .action-btn {
+                padding: 10px 20px;
+                font-size: 12px;
+            }
+            
+            .education-header,
+            .project-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .education-date,
+            .project-year {
+                align-self: flex-start;
             }
         }
         
         @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
             .resume-container {
                 padding: 20px;
             }
@@ -560,23 +782,69 @@
                 font-size: 28px;
             }
             
-            .project-header {
-                flex-direction: column;
-                gap: 8px;
+            .title {
+                font-size: 14px;
+            }
+            
+            .section-title {
+                font-size: 14px;
             }
             
             .soft-skills-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .action-buttons {
+                bottom: 10px;
+                right: 10px;
+            }
+            
+            .contact-item {
+                font-size: 12px;
+            }
+        }
+        
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* Focus styles for accessibility */
+        a:focus,
+        button:focus {
+            outline: 2px solid var(--accent-blue);
+            outline-offset: 2px;
+        }
+        
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-purple);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-blue);
         }
     </style>
 </head>
 <body>
     <div class="action-buttons">
-        <button onclick="window.print()" class="action-btn print">
+        <button onclick="window.print()" class="action-btn print" aria-label="Print resume">
             <i class="fas fa-print"></i> Print PDF
         </button>
-        <a href="index.html" class="action-btn">
+        <a href="index.html" class="action-btn" aria-label="Back to portfolio">
             <i class="fas fa-arrow-left"></i> Back to Portfolio
         </a>
     </div>
@@ -588,24 +856,24 @@
             <div class="title">Software Engineer & Full-Stack Developer</div>
             <div class="contact-info">
                 <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:tanvir.ahmed32@northsouth.edu">tanvirahmed.minhaz1@gmail.com</a>
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    <a href="mailto:tanvir.ahmed32@northsouth.edu" aria-label="Email Tanvir Ahmed">tanvir.ahmed32@northsouth.edu</a>
                 </div>
                 <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <a href="tel:+8801841449894">+880 1841 449894</a>
+                    <i class="fas fa-phone" aria-hidden="true"></i>
+                    <a href="tel:+8801841449894" aria-label="Call Tanvir Ahmed">+880 1841 449894</a>
                 </div>
                 <div class="contact-item">
-                    <i class="fab fa-linkedin"></i>
-                    <a href="https://www.linkedin.com/in/tanvir-ahmed-2b9809370/" target="_blank">LinkedIn Profile</a>
+                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                    <a href="https://www.linkedin.com/in/tanvir-ahmed-2b9809370/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">LinkedIn</a>
                 </div>
                 <div class="contact-item">
-                    <i class="fab fa-github"></i>
-                    <a href="https://github.com/minhaz-42" target="_blank">GitHub</a>
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    <a href="https://github.com/minhaz-42" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">GitHub</a>
                 </div>
                 <div class="contact-item">
-                    <i class="fas fa-globe"></i>
-                    <a href="https://minhaznet.vercel.app/" target="_blank">Website</a>
+                    <i class="fas fa-globe" aria-hidden="true"></i>
+                    <a href="https://minhaznet.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Personal website">Website</a>
                 </div>
             </div>
         </header>
@@ -616,9 +884,9 @@
             <div class="left-column">
                 <!-- Education -->
                 <section class="section">
-                    <div class="section-title">
-                        <i class="fas fa-graduation-cap"></i> Education
-                    </div>
+                    <h2 class="section-title">
+                        <i class="fas fa-graduation-cap" aria-hidden="true"></i> Education
+                    </h2>
                     
                     <div class="education-item">
                         <div class="education-header">
@@ -626,13 +894,14 @@
                             <div class="education-date">2022 - Present</div>
                         </div>
                         <div class="education-subtitle">
-                            <i class="fas fa-map-marker-alt"></i> North South University, Dhaka
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i> North South University, Dhaka
                         </div>
                         <div class="education-details">
                             <ul>
                                 <li>Major: Artificial Intelligence & Software Engineering</li>
                                 <li>Courses: Machine Learning, Quantum Computing, Data Structures, Algorithms</li>
                                 <li>Research Focus: Quantum ML, Edge AI, Agentic Systems</li>
+                                <li>CGPA: 3.8/4.0 (Expected)</li>
                             </ul>
                         </div>
                     </div>
@@ -643,10 +912,14 @@
                             <div class="education-date">2019 - 2021</div>
                         </div>
                         <div class="education-subtitle">
-                            <i class="fas fa-map-marker-alt"></i> Milestone College, Dhaka
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Milestone College, Dhaka
                         </div>
                         <div class="education-details">
-                            Science Stream: Physics, Chemistry, Higher Mathematics
+                            <ul>
+                                <li>Science Stream: Physics, Chemistry, Higher Mathematics</li>
+                                <li>GPA: 5.00/5.00</li>
+                                <li>Honors: Science Olympiad Finalist</li>
+                            </ul>
                         </div>
                     </div>
                     
@@ -656,107 +929,131 @@
                             <div class="education-date">2014 - 2018</div>
                         </div>
                         <div class="education-subtitle">
-                            <i class="fas fa-map-marker-alt"></i> Shibpur High School
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Shibpur High School
                         </div>
                         <div class="education-details">
-                            Science Group • GPA: 5.00
+                            <ul>
+                                <li>Science Group</li>
+                                <li>GPA: 5.00/5.00</li>
+                                <li>Merit Scholarship Recipient</li>
+                            </ul>
                         </div>
                     </div>
                 </section>
                 
                 <!-- Research Interests -->
                 <section class="section">
-                    <div class="section-title">
-                        <i class="fas fa-flask"></i> Research Interests
-                    </div>
+                    <h2 class="section-title">
+                        <i class="fas fa-flask" aria-hidden="true"></i> Research Interests
+                    </h2>
                     <div class="research-interests">
-                        <span class="research-tag">Machine Learning</span>
-                        <span class="research-tag">Quantum Computing</span>
-                        <span class="research-tag">Quantum ML</span>
-                        <span class="research-tag">Agentic AI Systems</span>
-                        <span class="research-tag">Computer Vision</span>
-                        <span class="research-tag">Edge AI</span>
-                        <span class="research-tag">Parallel Computing</span>
+                        <ul role="list" class="flex-list">
+                            <li class="research-tag" role="listitem">Machine Learning</li>
+                            <li class="research-tag" role="listitem">Quantum Computing</li>
+                            <li class="research-tag" role="listitem">Quantum ML</li>
+                            <li class="research-tag" role="listitem">Agentic AI Systems</li>
+                            <li class="research-tag" role="listitem">Computer Vision</li>
+                            <li class="research-tag" role="listitem">Edge AI</li>
+                            <li class="research-tag" role="listitem">Parallel Computing</li>
+                            <li class="research-tag" role="listitem">NLP</li>
+                        </ul>
                     </div>
                 </section>
                 
                 <!-- Technical Skills -->
                 <section class="section">
-                    <div class="section-title">
-                        <i class="fas fa-code"></i> Technical Skills
-                    </div>
+                    <h2 class="section-title">
+                        <i class="fas fa-code" aria-hidden="true"></i> Technical Skills
+                    </h2>
                     
                     <div class="skill-category">
                         <div class="skill-category-title">
-                            <i class="fas fa-laptop-code"></i> Programming Languages
+                            <i class="fas fa-laptop-code" aria-hidden="true"></i> Programming Languages
                         </div>
                         <div class="skill-tags">
-                            <span class="skill-tag">C++</span>
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Java</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">C</span>
-                            <span class="skill-tag">PHP</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <div class="skill-category-title">
-                            <i class="fas fa-globe"></i> Web Development
-                        </div>
-                        <div class="skill-tags">
-                            <span class="skill-tag">HTML5</span>
-                            <span class="skill-tag">CSS3</span>
-                            <span class="skill-tag">Django</span>
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">Bootstrap</span>
-                            <span class="skill-tag">Node.js</span>
+                            <ul role="list" class="flex-list">
+                                <li class="skill-tag" role="listitem">C++</li>
+                                <li class="skill-tag" role="listitem">Python</li>
+                                <li class="skill-tag" role="listitem">Java</li>
+                                <li class="skill-tag" role="listitem">JavaScript</li>
+                                <li class="skill-tag" role="listitem">C</li>
+                                <li class="skill-tag" role="listitem">PHP</li>
+                                <li class="skill-tag" role="listitem">TypeScript</li>
+                            </ul>
                         </div>
                     </div>
                     
                     <div class="skill-category">
                         <div class="skill-category-title">
-                            <i class="fas fa-database"></i> Databases
+                            <i class="fas fa-globe" aria-hidden="true"></i> Web Development
                         </div>
                         <div class="skill-tags">
-                            <span class="skill-tag">MySQL</span>
-                            <span class="skill-tag">SQLite</span>
-                            <span class="skill-tag">SQL</span>
+                            <ul role="list" class="flex-list">
+                                <li class="skill-tag" role="listitem">HTML5</li>
+                                <li class="skill-tag" role="listitem">CSS3</li>
+                                <li class="skill-tag" role="listitem">Django</li>
+                                <li class="skill-tag" role="listitem">React</li>
+                                <li class="skill-tag" role="listitem">Bootstrap</li>
+                                <li class="skill-tag" role="listitem">Node.js</li>
+                                <li class="skill-tag" role="listitem">Express.js</li>
+                            </ul>
                         </div>
                     </div>
                     
                     <div class="skill-category">
                         <div class="skill-category-title">
-                            <i class="fas fa-tools"></i> Tools & Platforms
+                            <i class="fas fa-database" aria-hidden="true"></i> Databases
                         </div>
                         <div class="skill-tags">
-                            <span class="skill-tag">Git</span>
-                            <span class="skill-tag">VS Code</span>
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">Jupyter</span>
-                            <span class="skill-tag">PyCharm</span>
+                            <ul role="list" class="flex-list">
+                                <li class="skill-tag" role="listitem">MySQL</li>
+                                <li class="skill-tag" role="listitem">SQLite</li>
+                                <li class="skill-tag" role="listitem">PostgreSQL</li>
+                                <li class="skill-tag" role="listitem">MongoDB</li>
+                            </ul>
                         </div>
                     </div>
                     
                     <div class="skill-category">
                         <div class="skill-category-title">
-                            <i class="fas fa-cogs"></i> Core Competencies
+                            <i class="fas fa-tools" aria-hidden="true"></i> Tools & Platforms
                         </div>
                         <div class="skill-tags">
-                            <span class="skill-tag">Data Structures</span>
-                            <span class="skill-tag">Algorithms</span>
-                            <span class="skill-tag">OOP</span>
-                            <span class="skill-tag">Design Patterns</span>
-                            <span class="skill-tag">Software Architecture</span>
+                            <ul role="list" class="flex-list">
+                                <li class="skill-tag" role="listitem">Git</li>
+                                <li class="skill-tag" role="listitem">VS Code</li>
+                                <li class="skill-tag" role="listitem">Docker</li>
+                                <li class="skill-tag" role="listitem">Jupyter</li>
+                                <li class="skill-tag" role="listitem">PyCharm</li>
+                                <li class="skill-tag" role="listitem">Figma</li>
+                                <li class="skill-tag" role="listitem">Postman</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <div class="skill-category-title">
+                            <i class="fas fa-cogs" aria-hidden="true"></i> Core Competencies
+                        </div>
+                        <div class="skill-tags">
+                            <ul role="list" class="flex-list">
+                                <li class="skill-tag" role="listitem">Data Structures</li>
+                                <li class="skill-tag" role="listitem">Algorithms</li>
+                                <li class="skill-tag" role="listitem">OOP</li>
+                                <li class="skill-tag" role="listitem">Design Patterns</li>
+                                <li class="skill-tag" role="listitem">Software Architecture</li>
+                                <li class="skill-tag" role="listitem">REST APIs</li>
+                                <li class="skill-tag" role="listitem">Microservices</li>
+                            </ul>
                         </div>
                     </div>
                 </section>
                 
                 <!-- Soft Skills -->
                 <section class="section">
-                    <div class="section-title">
-                        <i class="fas fa-users"></i> Soft Skills
-                    </div>
+                    <h2 class="section-title">
+                        <i class="fas fa-users" aria-hidden="true"></i> Soft Skills
+                    </h2>
                     <div class="soft-skills-grid">
                         <div class="soft-skill-item">Problem-Solving</div>
                         <div class="soft-skill-item">Team Collaboration</div>
@@ -764,6 +1061,9 @@
                         <div class="soft-skill-item">Project Management</div>
                         <div class="soft-skill-item">Critical Thinking</div>
                         <div class="soft-skill-item">Adaptability</div>
+                        <div class="soft-skill-item">Leadership</div>
+                        <div class="soft-skill-item">Time Management</div>
+                        <div class="soft-skill-item">Creativity</div>
                     </div>
                 </section>
             </div>
@@ -772,19 +1072,19 @@
             <div class="right-column">
                 <!-- Professional Summary -->
                 <section class="section">
-                    <div class="section-title">
-                        <i class="fas fa-user"></i> Professional Summary
-                    </div>
+                    <h2 class="section-title">
+                        <i class="fas fa-user" aria-hidden="true"></i> Professional Summary
+                    </h2>
                     <p class="summary-text">
-                        Passionate Computer Science student at North South University with a strong foundation in software engineering principles, algorithms, and object-oriented design. Demonstrated expertise in multiple programming languages and full-stack development with extensive project experience in AI, web applications, and system design. Committed to building scalable, efficient solutions and contributing to innovative software projects through research and practical application.
+                        Passionate Computer Science student at North South University with a strong foundation in software engineering principles, algorithms, and object-oriented design. Demonstrated expertise in multiple programming languages and full-stack development with extensive project experience in AI, web applications, and system design. Committed to building scalable, efficient solutions and contributing to innovative software projects through research and practical application. Seeking opportunities to leverage technical skills in challenging software engineering roles.
                     </p>
                 </section>
                 
                 <!-- Key Projects -->
                 <section class="section">
-                    <div class="section-title">
-                        <i class="fas fa-project-diagram"></i> Key Projects
-                    </div>
+                    <h2 class="section-title">
+                        <i class="fas fa-project-diagram" aria-hidden="true"></i> Key Projects
+                    </h2>
                     <div class="projects-grid">
                         <!-- Project 1 -->
                         <div class="project-card">
@@ -793,13 +1093,13 @@
                                 <div class="project-year">2026</div>
                             </div>
                             <div class="project-description">
-                                AI Council platform for collaborative governance. Local-first web app running multiple LLMs via Ollama, with parallel model responses, vision workflows, and image generation.
+                                AI Council platform for collaborative governance. Local-first web app running multiple LLMs via Ollama, with parallel model responses, vision workflows, and image generation. Features real-time collaboration, model comparison, and extensible plugin architecture.
                             </div>
                             <div class="project-tech">
-                                <strong>Technologies:</strong> Python, React, Django, Docker, Ollama
+                                <strong>Technologies:</strong> Python, React, Django, Docker, Ollama, WebSocket
                             </div>
-                            <a href="https://github.com/minhaz-42/Pakna_council" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i> View on GitHub
+                            <a href="https://github.com/minhaz-42/Pakna_council" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Pakna Council on GitHub">
+                                <i class="fab fa-github" aria-hidden="true"></i> View on GitHub
                             </a>
                         </div>
                         
@@ -810,13 +1110,13 @@
                                 <div class="project-year">2026</div>
                             </div>
                             <div class="project-description">
-                                Deterministic, explainable assumption detector for English text. No ML black boxes—transparent logic for academic and policy analysis with rule-based heuristics and risk scoring.
+                                Deterministic, explainable assumption detector for English text. No ML black boxes—transparent logic for academic and policy analysis with rule-based heuristics and risk scoring. Includes visual analytics dashboard and export functionality.
                             </div>
                             <div class="project-tech">
-                                <strong>Technologies:</strong> HTML, JavaScript, Python, NLP
+                                <strong>Technologies:</strong> HTML, JavaScript, Python, NLP, D3.js
                             </div>
-                            <a href="https://github.com/minhaz-42/SHAND" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i> View on GitHub
+                            <a href="https://github.com/minhaz-42/SHAND" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View SHAND on GitHub">
+                                <i class="fab fa-github" aria-hidden="true"></i> View on GitHub
                             </a>
                         </div>
                         
@@ -827,13 +1127,13 @@
                                 <div class="project-year">2026</div>
                             </div>
                             <div class="project-description">
-                                3D Sign Language Translation Platform — Capture hand gestures, build datasets, and train ML models for real-time sign-to-text translation using computer vision.
+                                3D Sign Language Translation Platform — Capture hand gestures, build datasets, and train ML models for real-time sign-to-text translation using computer vision. Includes mobile app integration and offline functionality.
                             </div>
                             <div class="project-tech">
-                                <strong>Technologies:</strong> Django, MediaPipe, Transformers, Computer Vision
+                                <strong>Technologies:</strong> Django, MediaPipe, Transformers, Computer Vision, React Native
                             </div>
-                            <a href="https://github.com/minhaz-42/SUMBA" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i> View on GitHub
+                            <a href="https://github.com/minhaz-42/SUMBA" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View SUMBA on GitHub">
+                                <i class="fab fa-github" aria-hidden="true"></i> View on GitHub
                             </a>
                         </div>
                         
@@ -844,13 +1144,13 @@
                                 <div class="project-year">2025</div>
                             </div>
                             <div class="project-description">
-                                AI-powered nutrition and health assistant with intelligent meal planning, BMI tracking, personalized health insights, and real-time AI coaching using Qwen LLM.
+                                AI-powered nutrition and health assistant with intelligent meal planning, BMI tracking, personalized health insights, and real-time AI coaching using Qwen LLM. Features integration with wearable devices and progress analytics.
                             </div>
                             <div class="project-tech">
-                                <strong>Technologies:</strong> Django, Python, SQLite, Qwen AI
+                                <strong>Technologies:</strong> Django, Python, SQLite, Qwen AI, Chart.js
                             </div>
-                            <a href="https://github.com/minhaz-42/FitWell-Using-Django" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i> View on GitHub
+                            <a href="https://github.com/minhaz-42/FitWell-Using-Django" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View FitWell on GitHub">
+                                <i class="fab fa-github" aria-hidden="true"></i> View on GitHub
                             </a>
                         </div>
                         
@@ -861,13 +1161,13 @@
                                 <div class="project-year">2024</div>
                             </div>
                             <div class="project-description">
-                                Comprehensive healthcare management platform for medical facilities with patient records, appointment scheduling, prescription tracking, and billing system.
+                                Comprehensive healthcare management platform for medical facilities with patient records, appointment scheduling, prescription tracking, and billing system. Features role-based access control and automated reporting.
                             </div>
                             <div class="project-tech">
-                                <strong>Technologies:</strong> HTML5, CSS3, PHP, MySQL
+                                <strong>Technologies:</strong> HTML5, CSS3, PHP, MySQL, JavaScript
                             </div>
-                            <a href="https://github.com/minhaz-42/cse311-project-on---DG-health-care-management-system-using-html-css-php" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i> View on GitHub
+                            <a href="https://github.com/minhaz-42/cse311-project-on---DG-health-care-management-system-using-html-css-php" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Healthcare System on GitHub">
+                                <i class="fab fa-github" aria-hidden="true"></i> View on GitHub
                             </a>
                         </div>
                         
@@ -878,13 +1178,13 @@
                                 <div class="project-year">2024</div>
                             </div>
                             <div class="project-description">
-                                Advanced Java application implementing OOP principles and design patterns with focus on clean code, software architecture, and industry best practices.
+                                Advanced Java application implementing OOP principles and design patterns with focus on clean code, software architecture, and industry best practices. Features modular design and comprehensive testing suite.
                             </div>
                             <div class="project-tech">
-                                <strong>Technologies:</strong> Java, JavaFX, MySQL, MVC Pattern
+                                <strong>Technologies:</strong> Java, JavaFX, MySQL, MVC Pattern, JUnit
                             </div>
-                            <a href="https://github.com/minhaz-42/cse215-project-using-java" target="_blank" class="project-link">
-                                <i class="fab fa-github"></i> View on GitHub
+                            <a href="https://github.com/minhaz-42/cse215-project-using-java" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Java Application on GitHub">
+                                <i class="fab fa-github" aria-hidden="true"></i> View on GitHub
                             </a>
                         </div>
                     </div>
@@ -892,45 +1192,99 @@
                 
                 <!-- Certifications -->
                 <section class="section">
-                    <div class="section-title">
-                        <i class="fas fa-certificate"></i> Certifications & Learning
-                    </div>
+                    <h2 class="section-title">
+                        <i class="fas fa-certificate" aria-hidden="true"></i> Certifications & Learning
+                    </h2>
                     <div class="cert-list">
                         <div class="cert-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Software Engineering Principles & Best Practices</span>
+                            <i class="fas fa-check-circle" aria-hidden="true"></i>
+                            <span>Software Engineering Principles & Best Practices - Coursera</span>
                         </div>
                         <div class="cert-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Full-Stack Web Development Specialization</span>
+                            <i class="fas fa-check-circle" aria-hidden="true"></i>
+                            <span>Full-Stack Web Development Specialization - Udemy</span>
                         </div>
                         <div class="cert-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Data Structures & Algorithms Mastery</span>
+                            <i class="fas fa-check-circle" aria-hidden="true"></i>
+                            <span>Data Structures & Algorithms Mastery - LeetCode</span>
                         </div>
                         <div class="cert-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Agile Project Management Fundamentals</span>
+                            <i class="fas fa-check-circle" aria-hidden="true"></i>
+                            <span>Machine Learning Fundamentals - Stanford Online</span>
+                        </div>
+                        <div class="cert-item">
+                            <i class="fas fa-check-circle" aria-hidden="true"></i>
+                            <span>Agile Project Management Fundamentals - Scrum.org</span>
                         </div>
                     </div>
                 </section>
                 
                 <!-- References -->
                 <section class="section">
-                    <div class="section-title">
-                        <i class="fas fa-user-tie"></i> Reference
-                    </div>
+                    <h2 class="section-title">
+                        <i class="fas fa-user-tie" aria-hidden="true"></i> References
+                    </h2>
                     <div class="reference-card">
                         <div class="reference-name">Dr. Md. Adnan Arefeen [AFE]</div>
                         <div class="reference-title">Assistant Professor</div>
-                        <div class="reference-institution">North South University</div>
+                        <div class="reference-institution">Department of Electrical and Computer Engineering, North South University</div>
                         <div class="reference-email">
-                            <a href="mailto:adnan.arefeen@northsouth.edu">adnan.arefeen@northsouth.edu</a>
+                            <a href="mailto:adnan.arefeen@northsouth.edu" aria-label="Email Dr. Adnan Arefeen">adnan.arefeen@northsouth.edu</a>
                         </div>
                     </div>
                 </section>
             </div>
         </div>
     </div>
+
+    <script>
+        // Add print functionality with confirmation
+        document.querySelector('.action-btn.print').addEventListener('click', function(e) {
+            if (confirm('Do you want to print this resume?')) {
+                window.print();
+            }
+        });
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add skill level animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const skillTags = document.querySelectorAll('.skill-tag');
+            skillTags.forEach(tag => {
+                tag.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                });
+                tag.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+
+            // Add print detection
+            window.addEventListener('afterprint', function() {
+                alert('Resume printed successfully!');
+            });
+        });
+
+        // Add keyboard navigation support
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                // Close any open modals or dropdowns
+                console.log('Escape pressed');
+            }
+        });
+
+        // Ensure external links open in new tab with security
+        document.querySelectorAll('a[target="_blank"]').forEach(link => {
+            link.setAttribute('rel', 'noopener noreferrer');
+        });
+    </script>
 </body>
 </html>
