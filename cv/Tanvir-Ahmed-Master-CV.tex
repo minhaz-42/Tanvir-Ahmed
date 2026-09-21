@@ -1,0 +1,314 @@
+%-------------------------------------------------------------------------------
+% Tanvir Ahmed - Master Curriculum Vitae (complete record)
+%
+% Everything: all publications and submissions, every research and technical
+% project, the full skills list. This is the document to cut a targeted CV from;
+% Tanvir-Ahmed-CV.tex is the two-page version used for internship applications.
+%
+% Build: ./build-cv.sh   (pdflatex, two passes, builds both CVs)
+%-------------------------------------------------------------------------------
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.85in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{XCharter}
+\usepackage{microtype}
+\usepackage[utf8]{inputenc}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{needspace}
+\usepackage[hidelinks]{hyperref}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\pagestyle{plain}
+
+\hypersetup{pdftitle={Tanvir Ahmed - Master Curriculum Vitae}, pdfauthor={Tanvir Ahmed}}
+
+\titleformat{\section}{\large\bfseries\scshape}{}{0em}{}[{\vspace{3pt}\titlerule[0.7pt]}]
+\titlespacing*{\section}{0pt}{15pt}{8pt}
+\setlist[itemize]{leftmargin=1.4em, itemsep=3pt, topsep=4pt, parsep=0pt}
+\setlength{\parskip}{4.5pt}
+\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{3em}
+
+\newcommand{\entryhead}[2]{\par\needspace{4\baselineskip}\vspace{4pt}\noindent%
+  \begin{tabular*}{\textwidth}[t]{@{}>{\raggedright\arraybackslash}p{0.72\textwidth}@{\extracolsep{\fill}}r@{}}
+    \textbf{#1} & #2
+  \end{tabular*}\par\vspace{1pt}}
+\newcommand{\entry}[2]{\entryhead{#1}{\textbf{#2}}}
+\newcommand{\entryplain}[2]{\entryhead{#1}{#2}}
+\newcommand{\tech}[1]{\par\vspace{2pt}\noindent\textbf{Technologies:} #1\par}
+\newcommand{\links}[1]{\par\vspace{2pt}\noindent\textbf{Links:} #1\par}
+\newcommand{\code}[1]{\par\vspace{2pt}\noindent\textbf{Code:} #1\par}
+\newcommand{\gap}{\par\vspace{7pt}}
+
+\let\origsection\section
+\renewcommand{\section}[1]{\needspace{7\baselineskip}\origsection{#1}}
+
+\begin{document}
+
+%----------------------------------- HEADER ------------------------------------
+\begin{center}
+  {\Huge\bfseries TANVIR AHMED}\\[7pt]
+  Dhaka, Bangladesh\\[3pt]
+  \href{mailto:tanvirahmed.minhaz1@gmail.com}{tanvirahmed.minhaz1@gmail.com} \,|\,
+  \href{mailto:tanvir.ahmed32@northsouth.edu}{tanvir.ahmed32@northsouth.edu} \,|\,
+  \href{tel:+8801841449894}{+880 1841 449894}\\[2pt]
+  \href{https://github.com/minhaz-42}{GitHub} \,|\,
+  \href{https://www.linkedin.com/in/tanvir-ahmed-1a4856418/}{LinkedIn} \,|\,
+  \href{https://minhaz-42.github.io/Tanvir-Ahmed/}{minhaz-42.github.io/Tanvir-Ahmed}
+\end{center}
+\vspace{-4pt}
+{\hrule height 0.9pt}
+
+\vspace{6pt}
+\noindent
+I am a final-year Computer Science and Engineering student at North South University, working on
+multimodal machine learning: which inputs actually need an expensive model, and when a model should
+say that it does not know. One accepted paper, six more under review, and three months as a
+research assistant at the NSU Trimodal AI Lab. Alongside the research I build full-stack systems,
+and I have spent time on quantum machine learning and on inference for microcontrollers.
+
+%----------------------------- RESEARCH INTERESTS ------------------------------
+\section{Research Interests}
+\begin{multicols}{2}
+\begin{itemize}[topsep=0pt]
+  \item Efficient multimodal inference
+  \item Computer vision and video understanding
+  \item Calibration, abstention and uncertainty
+  \item Agentic systems
+  \item Quantum machine learning
+  \item Explainable AI
+  \item Edge and embedded machine learning
+  \item Full-stack system architecture
+\end{itemize}
+\end{multicols}
+
+%---------------------------------- EDUCATION ----------------------------------
+\section{Education}
+\entry{Bachelor of Science in Computer Science and Engineering}{Aug 2022 -- Dec 2026}
+North South University, Dhaka, Bangladesh. Department of Electrical and Computer Engineering.
+Expected graduation December 2026.\\
+CGPA: \mbox{\textbf{2.99 / 4.00}}
+\gap
+
+\entry{Higher Secondary Certificate (HSC), Science}{Sep 2019 -- Dec 2021}
+Milestone College, Dhaka. GPA: \mbox{\textbf{5.00 / 5.00}}
+\gap
+
+\entry{Secondary School Certificate (SSC), Science}{Jan 2014 -- Mar 2018}
+Shibpur Union High School. GPA: \mbox{\textbf{5.00 / 5.00}}
+
+%---------------------------------- EXPERIENCE ---------------------------------
+\section{Experience}
+\entry{Research Assistant, Trimodal AI Lab}{Mar 2026 -- May 2026}
+North South University, Dhaka, Bangladesh. Contract, on-site, academic research.
+\begin{itemize}
+  \item Worked on multimodal and agentic AI systems under faculty supervision: reading the
+    literature, testing ideas and building prototypes.
+  \item Ran experiments with other lab members and wrote up the results, including what they did
+    not show.
+  \item Part of the lab since 2025, through its reading group and joint projects.
+\end{itemize}
+
+%-------------------------------- PUBLICATIONS ---------------------------------
+\section{Publications}
+
+\entry{Closed-Book Knowledge Base Construction with Calibrated Abstention and Numeric Self-Consistency}{Accepted}
+Tanvir Ahmed. \textit{LM-KBC 2026 shared task (5th edition), Automated Knowledge Base Construction
+(AKBC) at EMNLP 2026.}
+\begin{itemize}
+  \item Set-valued knowledge base construction with an open-weight model of at most 32B parameters,
+    no retrieval and no fine-tuning. Deciding \textit{when to answer} is treated as a first-class
+    decision, and the system beats the official baseline on five of the six relations.
+\end{itemize}
+\code{\href{https://github.com/minhaz-42/lm-kbc-2026}{github.com/minhaz-42/lm-kbc-2026}}
+\gap
+
+\entry{SoundSentry: A Low-Cost Edge-AI Acoustic Event Detection and Direction-Finding System on STM32}{Under review}
+Tanvir Ahmed, Sanzana Afrin Tonny, Husain Kabir Sifat. \textit{International Conference on
+Electrical and Computer Engineering (ICECE) 2026, Dhaka.}
+\begin{itemize}
+  \item STM32F103 prototype with a three-microphone array, ADC-DMA acquisition, on-device
+    classification over 11 acoustic features, servo-based direction response and SD-card logging.
+\end{itemize}
+\code{\href{https://github.com/minhaz-42/SoundSentry-Acoustic-Surveillance-Direction-Finding-System}{github.com/minhaz-42/SoundSentry}}
+\gap
+
+\entry{SimCert: A Classical-Simulability Audit of Trained QNLP Text Models}{Under review}
+\textit{Submitted to QTML 2026.}
+\begin{itemize}
+  \item Re-simulates trained quantum-NLP circuits under matrix-product-state truncation, and
+    ablates entanglement, to test whether the quantum component is load-bearing.
+\end{itemize}
+\tech{Python, PennyLane, lambeq, OpenQASM, Hydra}
+\code{\href{https://github.com/minhaz-42/simcert-qnlp}{github.com/minhaz-42/simcert-qnlp}}
+\gap
+
+\entry{Observing Is Not Free: The Decision Value of Visual Observations in Vision-Language Agents}{Under review}
+\begin{itemize}
+  \item Asks whether an agent's observation-selection criterion ranks observations the way their
+    realised effect on the answer does, measured with a counterfactual table of the model's answer
+    before and after every candidate observation. Decision value turns out not to be predictable
+    from crop geometry.
+\end{itemize}
+\tech{Python, Vision-Language Models}
+\gap
+
+\entry{Knowing What You No Longer Know: Calibrated Belief Validity for Persistent World Memory}{Under review}
+\begin{itemize}
+  \item Separates whether a belief is still true from how confident the model was when it formed
+    it, and builds a benchmark of elapsed-time-matched pairs over real and simulated changing rooms
+    to score the difference.
+\end{itemize}
+\tech{Python, PyTorch, HD-EPIC, AI2-THOR, ProcTHOR}
+\gap
+
+\entry{Sequential Video Belief}{Under review}
+\begin{itemize}
+  \item Tests whether a video-language model's own stated answer impairs its ability to revise that
+    answer when later visual evidence contradicts it, with the go or no-go rule fixed before
+    analysis.
+\end{itemize}
+\tech{Python, Vision-Language Models}
+\gap
+
+\entry{Uncertainty-Guided Language-Grounded 3D Scene Graphs from Sparse Views}{Under review}
+\begin{itemize}
+  \item Frozen geometry and vision-language models with a lightweight graph reasoning module, for
+    object-level 3D segmentation and spatial relations from only a few casual images.
+\end{itemize}
+\tech{Python, PyTorch, VGGT, SAM 2, CLIP, DINOv2}
+
+%------------------------------ RESEARCH PROJECTS ------------------------------
+\section{Research Projects}
+
+\entry{Frame-Aware Multi-Model Scheduling for Efficient Video Captioning}{Senior Design, 2026}
+Routes video captioning between a 4B and a 27B vision-language model so the large model is spent
+only where the footage is hard. Lead author of four.
+\begin{itemize}
+  \item Frames are stitched into mosaics, encoded by a frozen CLIP ViT-B/32 and scored for visual
+    complexity by a small graph attention network trained without human labels.
+  \item Answers a 19-clip benchmark in fewer requests than either model alone, while scoring above
+    the small model on every judged axis.
+\end{itemize}
+\tech{Python, PyTorch, PyTorch Geometric, CLIP, Django, Gemma 3, Qwen3-VL}
+\gap
+
+\entry{Quantum-Enhanced Driver Distraction Detection}{Directed Research, 2026}
+A hybrid classical--quantum pipeline with uncertainty-aware risk scoring, tested under a protocol
+where only the classification head differs.
+\begin{itemize}
+  \item The variational quantum head reaches accuracy parity with its matched classical control and
+    cuts expected calibration error by 37\% relative.
+  \item The report states what the evidence does not support, including that the calibration gain
+    cannot be attributed to the circuit.
+\end{itemize}
+\tech{Python, PyTorch, PennyLane, EfficientNet, scikit-learn}
+\gap
+
+\entry{Bangla Mental Health Conversational Agent}{Ongoing}
+Mental health chatbot for Bangla-speaking users, built on fine-tuned Gemma-3-Bangla and
+Qwen-2.5-0.5B-Bangla models, with voice input and output, mood tracking, conversation history and a
+multi-language interface.
+\tech{Python, Django, PyTorch, Transformers, OAuth, Apple MPS, SQLite}
+
+%------------------------------ TECHNICAL PROJECTS -----------------------------
+\section{Technical Projects}
+
+\entryplain{Pakna Council: AI Council Platform}{2026}
+Local-first web app that runs several LLMs in parallel on one prompt through Ollama, with model
+comparison and vision workflows.
+\tech{Python, Django, React, Docker, Ollama, WebSocket}
+\links{\href{https://github.com/minhaz-42/Pakna_council}{Source} $\cdot$ \href{https://pakna-council.vercel.app/}{Live site}}
+\gap
+
+\entryplain{Nestledown: 3D Exploration Game}{2026}
+Cozy 3D exploration game built solo in Godot 4, with every model, texture, animation and sound
+generated by a script and no third-party asset in the repository. A parallel build of the same
+world runs on a custom C++20 engine.
+\tech{Godot 4, Blender, C++20, SDL3, CMake}
+\links{\href{https://youtu.be/MUN7_kuh00U}{Announcement trailer}}
+\gap
+
+\entryplain{SHAND: Explainable Assumption Detector}{2026}
+Rule-based system for finding assumptions in English text, with visual analytics and export.
+\tech{Python, NLP, HTML, JavaScript, D3.js}
+\links{\href{https://github.com/minhaz-42/SHAND}{Source} $\cdot$ \href{https://shand1.vercel.app/}{Live site}}
+\gap
+
+\entryplain{ISKA: Privacy-First Document Analysis Assistant}{2026}
+Document analysis assistant with a Chrome extension for use while reading.
+\tech{TypeScript, Chrome extension APIs}
+\links{\href{https://github.com/minhaz-42/ISKA}{Source} $\cdot$ \href{https://iska-hxrr.vercel.app/}{Live site}}
+\gap
+
+\entryplain{SUMBA: 3D Sign Language Translation}{2026}
+Real-time sign-to-text translation using computer vision, with mobile integration and offline use.
+\tech{Django, MediaPipe, Transformers, React Native}
+\links{\href{https://github.com/minhaz-42/SUMBA}{Source}}
+\gap
+
+\entryplain{Entangled Fusion Quantum Circuits for Vision--Language Alignment}{2026}
+Experimental multimodal platform that combines vision analysis with quantum-inspired fusion and
+natural language reasoning.
+\tech{Python, Django, PennyLane, Ollama, OpenCV, REST APIs}
+\links{\href{https://github.com/minhaz-42/Entangled-Fusion-Quantum-Circuits-for-Vision-Language-Representation-Alignment}{Source}}
+\gap
+
+\entryplain{FitWell: AI Nutrition Assistant}{2025}
+AI-powered meal planning, BMI tracking and health insights.
+\tech{Django, Python, Qwen, SQLite, Chart.js}
+\links{\href{https://github.com/minhaz-42/FitWell-Using-Django}{Source}}
+\gap
+
+\entryplain{DG Healthcare Management System}{2024}
+Hospital management platform with appointments, billing and role-based access.
+\tech{HTML5, CSS3, PHP, MySQL, JavaScript}
+\links{\href{https://github.com/minhaz-42/cse311-project-on---DG-health-care-management-system-using-html-css-php}{Source}}
+\gap
+
+\entryplain{CSE215 Java Application}{2024}
+Object-oriented Java application with a modular MVC structure and unit tests.
+\tech{Java, JavaFX, MySQL, JUnit}
+\links{\href{https://github.com/minhaz-42/cse215-project-using-java}{Source}}
+
+%------------------------------- TECHNICAL SKILLS ------------------------------
+\section{Technical Skills}
+\textbf{Languages:} Python, Java, JavaScript, TypeScript, C/C++, PHP, SQL, HTML, CSS, LaTeX
+
+\textbf{Machine Learning and AI:} Deep learning, computer vision, NLP, LLMs, Transformers,
+vision-language models, fine-tuning, calibration and abstention, quantum machine learning
+
+\textbf{Frameworks and Libraries:} PyTorch, PyTorch Geometric, TensorFlow, scikit-learn,
+Transformers, OpenCV, CLIP, MediaPipe, PennyLane, lambeq, Hydra
+
+\textbf{Software and Web:} Django, React, Node.js, JavaFX, REST APIs, WebSocket, Docker, CI/CD,
+OOP, design patterns, Agile/Scrum, unit testing
+
+\textbf{Databases:} MySQL, PostgreSQL, SQLite, MongoDB
+
+\textbf{Embedded and Graphics:} STM32, embedded C, ADC-DMA acquisition, Godot 4, Blender, SDL3,
+CMake
+
+\textbf{Tools:} Git, Linux, VS Code, Jupyter, LaTeX, Ollama, Apple MPS
+
+%--------------------------- EXTRACURRICULAR ACTIVITIES ------------------------
+\section{Extracurricular Activities}
+\entry{IEEE NSU Student Branch, General Member}{2023 -- Present}
+Technical workshops, seminars and community outreach programmes.
+
+%---------------------------------- REFERENCES ---------------------------------
+\section{References}
+\begingroup\raggedright
+\noindent\textbf{Md Tanvir Ahmad Palash}\\
+Group Chief Technology Officer, GoZayaan, Dhaka, Bangladesh\\
+\href{mailto:tanvir.palash@gozayaan.com}{tanvir.palash@gozayaan.com}
+
+\noindent\textbf{Dr.\ Md.\ Adnan Arefeen}\\
+Assistant Professor, Department of Electrical and Computer Engineering, North South University\\
+\href{mailto:adnan.arefeen@northsouth.edu}{adnan.arefeen@northsouth.edu}
+\par\endgroup
+
+\end{document}
