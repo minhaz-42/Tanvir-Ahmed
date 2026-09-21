@@ -1,270 +1,175 @@
 %-------------------------------------------------------------------------------
-% Tanvir Ahmed - Curriculum Vitae
-% Same layout as the original CV (centred header, ruled section titles, bold
-% entry titles with right-aligned dates, bullet details, "Technologies:" lines),
-% with the content brought up to date.
+% Tanvir Ahmed - Curriculum Vitae (short, for internship applications)
 %
-% Build: ./build-cv.sh   (pdflatex, two passes)
+% Two pages, kept open on purpose: length is controlled by cutting text, never by
+% closing up the spacing. The full record lives in Tanvir-Ahmed-Master-CV.tex.
+%
+% Build: ./build-cv.sh   (pdflatex, two passes, builds both CVs)
 %-------------------------------------------------------------------------------
-\documentclass[11pt,letterpaper]{article}
-\usepackage[margin=1in]{geometry}
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.78in]{geometry}
 \usepackage[T1]{fontenc}
+\usepackage{XCharter}
+\usepackage{microtype}
 \usepackage[utf8]{inputenc}
 \usepackage{titlesec}
 \usepackage{enumitem}
-\usepackage{multicol}
-\usepackage{parskip}
 \usepackage{array}
+\usepackage{needspace}
 \usepackage[hidelinks]{hyperref}
 \input{glyphtounicode}
 \pdfgentounicode=1
 \pagestyle{plain}
 
-\titleformat{\section}{\Large\bfseries}{}{0em}{}[\vspace{-5pt}\titlerule]
-\titlespacing*{\section}{0pt}{12pt}{7pt}
-\setlist[itemize]{leftmargin=1.5em, itemsep=0pt, topsep=2pt, parsep=0pt}
-\setlength{\parskip}{3.5pt}
+\hypersetup{pdftitle={Tanvir Ahmed - Curriculum Vitae}, pdfauthor={Tanvir Ahmed}}
 
-% Entry head: title wraps inside its own column; the date or status stays on the
-% first line, right-aligned. Every macro opens and closes its own paragraph so a
-% following line can never run onto the previous one.
-\newcommand{\entryhead}[2]{\par\vspace{3pt}\noindent%
-  \begin{tabular*}{\textwidth}[t]{@{}>{\raggedright\arraybackslash}p{0.73\textwidth}@{\extracolsep{\fill}}r@{}}
+\titleformat{\section}{\large\bfseries\scshape}{}{0em}{}[{\vspace{3pt}\titlerule[0.7pt]}]
+\titlespacing*{\section}{0pt}{14pt}{8pt}
+\setlist[itemize]{leftmargin=1.4em, itemsep=5pt, topsep=6pt, parsep=0pt}
+\setlength{\parskip}{5.5pt}
+\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{3em}
+
+% Entry head: the title wraps in its own column, the date stays right-aligned on
+% the first line. Each macro opens and closes its own paragraph.
+\newcommand{\entryhead}[2]{\par\needspace{4\baselineskip}\vspace{5pt}\noindent%
+  \begin{tabular*}{\textwidth}[t]{@{}>{\raggedright\arraybackslash}p{0.75\textwidth}@{\extracolsep{\fill}}r@{}}
     \textbf{#1} & #2
-  \end{tabular*}\par\vspace{-1pt}}
+  \end{tabular*}\par\vspace{1pt}}
 \newcommand{\entry}[2]{\entryhead{#1}{\textbf{#2}}}
 \newcommand{\entryplain}[2]{\entryhead{#1}{#2}}
-\newcommand{\tech}[1]{\par\vspace{1pt}\noindent\textbf{Technologies:} #1\par}
-\newcommand{\links}[1]{\par\vspace{1pt}\noindent\textbf{Links:} #1\par}
-\newcommand{\gap}{\par\vspace{3pt}}
+\newcommand{\gap}{\par\vspace{6pt}}
+
+% A section heading alone at the foot of a page is not a section heading
+\let\origsection\section
+\renewcommand{\section}[1]{\needspace{5\baselineskip}\origsection{#1}}
 
 \begin{document}
 
 %----------------------------------- HEADER ------------------------------------
 \begin{center}
-  {\LARGE\bfseries TANVIR AHMED}\\[5pt]
-  North South University, Dhaka, Bangladesh\\[2pt]
+  {\Huge\bfseries TANVIR AHMED}\\[7pt]
+  Dhaka, Bangladesh\\[3pt]
   \href{mailto:tanvirahmed.minhaz1@gmail.com}{tanvirahmed.minhaz1@gmail.com} \,|\,
   \href{tel:+8801841449894}{+880 1841 449894} \,|\,
   \href{https://github.com/minhaz-42}{GitHub} \,|\,
   \href{https://www.linkedin.com/in/tanvir-ahmed-1a4856418/}{LinkedIn} \,|\,
   \href{https://minhaz-42.github.io/Tanvir-Ahmed/}{Website}
 \end{center}
+\vspace{-4pt}
+{\hrule height 0.9pt}
+
+\vspace{6pt}
+\noindent
+I am a final-year Computer Science and Engineering student at North South University, working on
+multimodal machine learning: which inputs need an expensive model, and when a model should say that
+it does not know. One accepted paper, three under review, and three months as a research assistant at
+the NSU Trimodal AI Lab.
 
 %---------------------------------- EDUCATION ----------------------------------
 \section{Education}
-\entry{Bachelor of Science in Computer Science and Engineering}{2022 -- Dec 2026 (expected)}
-North South University, Dhaka, Bangladesh\\
-Department of Electrical and Computer Engineering\\
-CGPA: \textbf{3.02 / 4.00}
+\entry{Bachelor of Science in Computer Science and Engineering}{Aug 2022 -- Dec 2026}
+North South University, Dhaka. Dept.\ of Electrical and Computer Engineering.
+CGPA: \mbox{\textbf{2.99 / 4.00}}
 \gap
-\entry{Higher Secondary Certificate (HSC), Science}{January 2021}
-Milestone College, Dhaka\\
-GPA: \textbf{5.00 / 5.00}
 
-%----------------------------- RESEARCH INTERESTS ------------------------------
-\section{Research Interests}
-\begin{multicols}{2}
-\begin{itemize}[topsep=0pt]
-  \item Efficient Multimodal Inference
-  \item Computer Vision and Video Understanding
-  \item Calibration, Abstention and Uncertainty
-  \item Quantum Machine Learning
-  \item Explainable AI (XAI)
-  \item Edge AI
-  \item Agentic Systems
-  \item Full-Stack System Architecture
+\entry{Higher Secondary Certificate (HSC), Science}{Sep 2019 -- Dec 2021}
+Milestone College, Dhaka. GPA: \mbox{\textbf{5.00 / 5.00}}
+\gap
+
+\entry{Secondary School Certificate (SSC), Science}{Jan 2014 -- Mar 2018}
+Shibpur Union High School. GPA: \mbox{\textbf{5.00 / 5.00}}
+
+%---------------------------------- EXPERIENCE ---------------------------------
+\section{Experience}
+\entry{Research Assistant, Trimodal AI Lab}{Mar 2026 -- May 2026}
+North South University, Dhaka. Contract, on-site, academic research.
+\begin{itemize}
+  \item Worked on multimodal and agentic AI systems under faculty supervision: reading the
+    literature, testing ideas and building prototypes.
+  \item Ran experiments with other lab members and wrote up the results. In the lab since 2025.
 \end{itemize}
-\end{multicols}
 
 %-------------------------------- PUBLICATIONS ---------------------------------
 \section{Publications}
+
 \entry{Closed-Book Knowledge Base Construction with Calibrated Abstention and Numeric Self-Consistency}{Accepted}
-Tanvir Ahmed. \textit{LM-KBC 2026 shared task (5th edition), Automated Knowledge Base Construction (AKBC) at EMNLP 2026.}
-\begin{itemize}
-  \item Set-valued knowledge base construction with an open-weight model of at most 32B parameters,
-    no retrieval and no fine-tuning; treats deciding \textit{when to answer} as a first-class decision
-    and beats the official baseline on five of the six relations.
-  \item Code: \href{https://github.com/minhaz-42/lm-kbc-2026}{github.com/minhaz-42/lm-kbc-2026}
-\end{itemize}
+Tanvir Ahmed. \textit{LM-KBC 2026 shared task (5th edition), AKBC at EMNLP 2026.}\\
+Beats the official baseline on five of the six relations, with no retrieval and no fine-tuning.\\
+Code: \href{https://github.com/minhaz-42/lm-kbc-2026}{github.com/minhaz-42/lm-kbc-2026}
 \gap
-\entry{SoundSentry: A Low-Cost Edge-AI Acoustic Event Detection and Direction-Finding System on STM32}{Under review}
-Tanvir Ahmed, Sanzana Afrin Tonny, Husain Kabir Sifat. \textit{International Conference on Electrical and Computer Engineering (ICECE) 2026, Dhaka.}
+
+\entry{SimCert: A Classical-Simulability Audit of Trained QNLP Text Models}{Under review}
+\textit{Submitted to QTML 2026.}\\
+Whether the quantum component is load-bearing.
+Code: \href{https://github.com/minhaz-42/simcert-qnlp}{github.com/minhaz-42/simcert-qnlp}
+\gap
+
+\noindent\textbf{Also under review:}
 \begin{itemize}
-  \item STM32F103 prototype with a three-microphone array, ADC-DMA acquisition, on-device
-    classification over 11 acoustic features, servo-based direction response and SD-card logging.
-  \item Code: \href{https://github.com/minhaz-42/SoundSentry-Acoustic-Surveillance-Direction-Finding-System}{github.com/minhaz-42/SoundSentry-Acoustic-Surveillance-Direction-Finding-System}
+  \item Observing Is Not Free: The Decision Value of Visual Observations in Vision-Language Agents
+  \item Knowing What You No Longer Know: Calibrated Belief Validity for Persistent World Memory
 \end{itemize}
 
 %------------------------------ RESEARCH PROJECTS ------------------------------
 \section{Research Projects}
 
-\entry{Frame-Aware Multi-Model Scheduling for Efficient Video Captioning}{Senior Design Project, 2026}
-Routes video captioning between a 4B and a 27B vision-language model so the large model is spent
-only where the footage is hard. Lead author of four.
-\begin{itemize}
-  \item Frames are stitched into mosaics, encoded by a frozen CLIP ViT-B/32 and scored for visual
-    complexity by a small graph attention network trained without human labels.
-  \item Answers a 19-clip benchmark in fewer requests than either model alone while scoring above the
-    small model on every judged axis.
-\end{itemize}
-\tech{Python, PyTorch, PyTorch Geometric, CLIP, Django, Gemma 3, Qwen3-VL}
-\gap
-
-\entry{Quantum-Enhanced Driver Distraction Detection}{Directed Research, 2026}
-A hybrid classical--quantum pipeline with uncertainty-aware risk scoring, tested under a protocol
-where only the classification head differs.
-\begin{itemize}
-  \item The variational quantum head reaches accuracy parity with its matched classical control and
-    cuts expected calibration error by 37\% relative.
-  \item The report states what the evidence does not support, including that the calibration gain
-    cannot be attributed to the circuit.
-\end{itemize}
-\tech{Python, PyTorch, PennyLane, EfficientNet, scikit-learn}
+\entry{Frame-Aware Multi-Model Scheduling for Efficient Video Captioning}{2026}
+Routes video captioning between a 4B and a 27B model so the large one is used only on hard footage.
+Senior design project, lead author of four. \textit{PyTorch, CLIP, Gemma 3, Qwen3-VL.}
 \gap
 
 \entry{Bangla Mental Health Conversational Agent}{Ongoing}
-AI-powered mental health chatbot for Bangla-speaking users providing context-aware, empathetic
-conversations.
-\begin{itemize}
-  \item Fine-tuned models: Gemma-3-Bangla, Qwen-2.5-0.5B-Bangla
-  \item Features: voice I/O, mood tracking, conversation history, multi-language UI
-  \item Technical: Django backend, OAuth authentication, Apple MPS GPU acceleration
-\end{itemize}
-\tech{Python, Django, PyTorch, Transformers, REST APIs, SQLite}
-\gap
-
-\entry{Observing Is Not Free: the decision value of visual observations in vision-language agents}{In preparation}
-Measures whether an agent's observation-selection criterion ranks observations the way their
-realised effect on the answer does, using a counterfactual table of answers before and after each
-candidate observation.
-\tech{Python, Vision-Language Models}
-\gap
-
-\entry{Knowing What You No Longer Know: calibrated belief validity for persistent world memory}{In preparation}
-Separates whether a belief is still true from how confident the model was when it formed it, and
-builds a benchmark of elapsed-time-matched pairs to score it.
-\tech{Python, PyTorch, HD-EPIC, AI2-THOR, ProcTHOR}
-\gap
-
-\entry{SimCert: A Classical-Simulability Audit of Trained QNLP Text Models}{Abstract submitted, QTML 2026}
-Re-simulates trained quantum-NLP circuits under matrix-product-state truncation to test whether the
-quantum component is load-bearing. Code: \href{https://github.com/minhaz-42/simcert-qnlp}{github.com/minhaz-42/simcert-qnlp}
-\tech{Python, PennyLane, lambeq, OpenQASM, Hydra}
-\gap
-
-\entry{Sequential Video Belief}{In progress}
-Whether a video-language model's own stated answer impairs its ability to revise that answer when
-later visual evidence contradicts it.
-\tech{Python, Vision-Language Models}
-\gap
-
-\entry{Uncertainty-Guided Language-Grounded 3D Scene Graphs from Sparse Views}{In progress}
-Frozen geometry and vision-language models with a lightweight graph reasoning module, for 3D
-object segmentation and spatial relations from a few casual images.
-\tech{Python, PyTorch, VGGT, SAM 2, CLIP, DINOv2}
+Chatbot for Bangla-speaking users on fine-tuned Gemma-3-Bangla and Qwen-2.5-0.5B-Bangla models.
 
 %------------------------------ TECHNICAL PROJECTS -----------------------------
 \section{Technical Projects}
-
-\entryplain{Pakna Council -- AI Council Platform}{2026}
-Local-first web app running multiple LLMs in parallel on one prompt through Ollama, with model
-comparison and vision workflows.
-\links{\href{https://github.com/minhaz-42/Pakna_council}{Source} $\cdot$ \href{https://pakna-council.vercel.app/}{Live site}}
-\tech{Python, Django, React, Docker, Ollama, WebSocket}
-\gap
-
-\entryplain{SHAND -- Explainable Assumption Detector}{2026}
-Rule-based system for analysing assumptions in English text; includes visual analytics and export.
-\links{\href{https://github.com/minhaz-42/SHAND}{Source} $\cdot$ \href{https://shand1.vercel.app/}{Live site}}
-\tech{Python, NLP, HTML, JavaScript, D3.js}
-\gap
-
-\entryplain{ISKA -- Privacy-First Document Analysis Assistant}{2026}
-Document analysis assistant with a Chrome extension for use while reading.
-\links{\href{https://github.com/minhaz-42/ISKA}{Source} $\cdot$ \href{https://iska-hxrr.vercel.app/}{Live site}}
-\tech{TypeScript, Chrome extension APIs}
-\gap
-
-\entryplain{Nestledown -- 3D Exploration Game}{2026}
-Cozy 3D exploration game built solo in Godot 4 with every asset script-generated; a parallel build
-runs on a custom C++20 engine with a Metal renderer.
-\links{\href{https://youtu.be/MUN7_kuh00U}{Announcement trailer}}
-\tech{Godot 4, Blender, C++20, Metal, SDL3, CMake}
-\gap
-
-\entryplain{Entangled Fusion Quantum Circuits for Vision--Language Alignment}{2026}
-Experimental multimodal platform combining vision analysis with quantum-inspired fusion and
-natural language reasoning.
-\links{\href{https://github.com/minhaz-42/Entangled-Fusion-Quantum-Circuits-for-Vision-Language-Representation-Alignment}{Source}}
-\tech{Python, Django, PennyLane, Ollama, OpenCV, REST APIs}
-\gap
-
-\entryplain{SUMBA -- 3D Sign Language Translation}{2026}
-Real-time sign-to-text translation using computer vision with mobile integration and offline
-functionality.
-\links{\href{https://github.com/minhaz-42/SUMBA}{Source}}
-\tech{Django, MediaPipe, Transformers, React Native}
-\gap
-
-\entryplain{FitWell -- AI Nutrition Assistant}{2025}
-AI-powered meal planning, BMI tracking and health insights.
-\links{\href{https://github.com/minhaz-42/FitWell-Using-Django}{Source}}
-\tech{Django, Python, Qwen, SQLite, Chart.js}
-\gap
-
-\entryplain{DG Healthcare Management System}{2024}
-Hospital management platform with appointments, billing and role-based access.
-\links{\href{https://github.com/minhaz-42/cse311-project-on---DG-health-care-management-system-using-html-css-php}{Source}}
-\tech{HTML5, CSS3, PHP, MySQL, JavaScript}
-\gap
-
-\entryplain{CSE215 Java Application}{2024}
-OOP-focused Java application with modular design, MVC pattern and unit testing.
-\links{\href{https://github.com/minhaz-42/cse215-project-using-java}{Source}}
-\tech{Java, JavaFX, MySQL, JUnit}
+\begin{itemize}
+  \item \textbf{Pakna Council} (2026). Local-first web app that runs several LLMs in parallel on one
+    prompt through Ollama and puts their answers side by side, with vision workflows and model
+    comparison. \textit{Django, React, Docker, Ollama, WebSocket.}
+    \href{https://github.com/minhaz-42/Pakna_council}{Source} $\cdot$
+    \href{https://pakna-council.vercel.app/}{Live site}
+  \item \textbf{Nestledown} (2026). Cozy 3D exploration game built solo in Godot 4, in which every
+    model, texture, animation and sound is script-generated and no third-party asset enters the
+    repository. A parallel build runs on a custom C++20 engine.
+    \textit{Godot 4, Blender, C++20, SDL3.}
+    \href{https://youtu.be/MUN7_kuh00U}{Announcement trailer}
+  \item \textbf{SHAND} (2026). Detects unstated assumptions in English text with an inspectable
+    rule-based system rather than a trained scorer. \textit{Python, NLP, D3.js.}
+    \href{https://github.com/minhaz-42/SHAND}{Source} $\cdot$
+    \href{https://shand1.vercel.app/}{Live site}
+  \item \textbf{FitWell} (2025). Meal planning, BMI tracking and health insights, with an
+    open-weight model generating plans from a user's goals. \textit{Django, Qwen, SQLite.}
+    \href{https://github.com/minhaz-42/FitWell-Using-Django}{Source}
+\end{itemize}
 
 %------------------------------- TECHNICAL SKILLS ------------------------------
 \section{Technical Skills}
-\textbf{Languages:} Python, Java, JavaScript, TypeScript, PHP, C/C++, SQL, HTML, CSS, \LaTeX
-
-\textbf{Machine Learning \& AI:} Deep Learning, Computer Vision, NLP, LLMs, Transformers,
-Vision-Language Models, MediaPipe, Quantum ML, Fine-tuning, Calibration
-
-\textbf{Frameworks \& Libraries:} PyTorch, PyTorch Geometric, TensorFlow, scikit-learn, Django,
-React, Node.js, JavaFX, PennyLane, lambeq, OpenCV, CLIP, Hydra
-
-\textbf{Databases:} MySQL, SQLite, PostgreSQL, MongoDB
-
-\textbf{Software Engineering:} OOP, Design Patterns, Agile/Scrum, REST APIs, WebSocket, Docker,
-CI/CD, Unit Testing
-
-\textbf{Embedded \& Graphics:} STM32, Embedded C, ADC-DMA acquisition, Godot 4, Blender, Metal,
-SDL3, CMake
-
-\textbf{Tools \& Platforms:} Git, VS Code, Jupyter, \LaTeX, Linux, Ollama, Apple MPS
-
-\textbf{Specializations:} Full-Stack Development, System Architecture, LLM Orchestration,
-Edge AI Deployment
+\textbf{Languages:} Python, Java, JavaScript, TypeScript, C/C++, PHP, SQL, HTML, CSS, LaTeX\\[3pt]
+\textbf{Machine learning:} Computer vision, NLP, LLMs, vision-language models, calibration, quantum ML\\[3pt]
+\textbf{Frameworks:} PyTorch, PyTorch Geometric, scikit-learn, Transformers, OpenCV, CLIP, PennyLane\\[3pt]
+\textbf{Software and systems:} Django, React, Node.js, REST APIs, Docker, CI/CD, SQL, Git, Linux, STM32
 
 %--------------------------- EXTRACURRICULAR ACTIVITIES ------------------------
 \section{Extracurricular Activities}
 \entry{IEEE NSU Student Branch, General Member}{2023 -- Present}
-\begin{itemize}
-  \item Participated in technical workshops, seminars, and community outreach programs
-\end{itemize}
+Technical workshops and seminars run by the branch, and its community outreach programmes.
 \gap
-\entry{NSU Trimodal AI Lab, Research Member}{2025 -- Present}
-\begin{itemize}
-  \item Engaged in research discussions and collaborative experimentation on multimodal and
-    agentic AI systems
-  \item Contributed to idea validation, prototyping, and literature exploration in emerging AI domains
-\end{itemize}
+
+\entry{NSU Trimodal AI Lab, Reading Group}{2025 -- Present}
+Reads and discusses multimodal and agentic AI papers with other members of the lab.
 
 %---------------------------------- REFERENCES ---------------------------------
 \section{References}
-\textbf{Dr. Md. Adnan Arefeen}\\
-Assistant Professor, Dept. of ECE, North South University\\
+\begingroup\raggedright
+\noindent\textbf{Md Tanvir Ahmad Palash}\\
+Group Chief Technology Officer, GoZayaan, Dhaka, Bangladesh\\
+\href{mailto:tanvir.palash@gozayaan.com}{tanvir.palash@gozayaan.com}
+
+\noindent\textbf{Dr.\ Md.\ Adnan Arefeen}\\
+Assistant Professor, Department of Electrical and Computer Engineering, North South University\\
 \href{mailto:adnan.arefeen@northsouth.edu}{adnan.arefeen@northsouth.edu}
+\par\endgroup
 
 \end{document}
