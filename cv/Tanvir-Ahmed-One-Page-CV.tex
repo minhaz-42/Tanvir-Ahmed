@@ -1,0 +1,118 @@
+%-------------------------------------------------------------------------------
+% Tanvir Ahmed - Curriculum Vitae (one page)
+%
+% The shortest of the three documents. One page is a hard constraint, so this
+% carries the accepted paper, the assistantship and three current projects and
+% nothing else; the papers under review and the earlier project work live in
+% Tanvir-Ahmed-CV.tex and Tanvir-Ahmed-Master-CV.tex.
+%
+% Build: ./build-cv.sh   (pdflatex, two passes, builds all three CVs)
+%-------------------------------------------------------------------------------
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.7in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{XCharter}
+\usepackage{microtype}
+\usepackage[utf8]{inputenc}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage[hidelinks]{hyperref}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\pagestyle{empty}
+
+\hypersetup{pdftitle={Tanvir Ahmed - Curriculum Vitae}, pdfauthor={Tanvir Ahmed}}
+
+\titleformat{\section}{\large\bfseries\scshape}{}{0em}{}[{\vspace{3pt}\titlerule[0.7pt]}]
+\titlespacing*{\section}{0pt}{11pt}{6pt}
+\setlist[itemize]{leftmargin=1.3em, itemsep=3pt, topsep=4pt, parsep=0pt}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+\setlength{\emergencystretch}{3em}
+
+\newcommand{\entryhead}[2]{\par\vspace{4pt}\noindent%
+  \begin{tabular*}{\textwidth}[t]{@{}>{\raggedright\arraybackslash}p{0.75\textwidth}@{\extracolsep{\fill}}r@{}}
+    \textbf{#1} & #2
+  \end{tabular*}\par\vspace{1pt}}
+\newcommand{\entry}[2]{\entryhead{#1}{\textbf{#2}}}
+\newcommand{\gap}{\par\vspace{5pt}}
+
+\begin{document}
+
+%----------------------------------- HEADER ------------------------------------
+\begin{center}
+  {\Huge\bfseries TANVIR AHMED}\\[7pt]
+  Dhaka, Bangladesh\\[3pt]
+  \href{mailto:tanvirahmed.minhaz1@gmail.com}{tanvirahmed.minhaz1@gmail.com} \,|\,
+  \href{tel:+8801841449894}{+880 1841 449894} \,|\,
+  \href{https://github.com/minhaz-42}{GitHub} \,|\,
+  \href{https://www.linkedin.com/in/tanvir-ahmed-1a4856418/}{LinkedIn} \,|\,
+  \href{https://minhaz-42.github.io/Tanvir-Ahmed/}{Website}
+\end{center}
+\vspace{-4pt}
+{\hrule height 0.9pt}
+
+\vspace{6pt}
+\noindent
+I am a final-year Computer Science and Engineering student at North South University, working on
+multimodal machine learning. One accepted paper, more under review, and three months as a research
+assistant at the NSU Trimodal AI Lab.
+
+%---------------------------------- EDUCATION ----------------------------------
+\section{Education}
+\entry{Bachelor of Science in Computer Science and Engineering}{Aug 2022 -- Dec 2026}
+North South University, Dhaka. Dept.\ of Electrical and Computer Engineering.
+CGPA: \mbox{\textbf{2.99 / 4.00}}
+\gap
+
+\entry{Higher Secondary Certificate (HSC), Science}{Sep 2019 -- Dec 2021}
+Milestone College, Dhaka. GPA: \mbox{\textbf{5.00 / 5.00}}
+
+%---------------------------------- EXPERIENCE ---------------------------------
+\section{Experience}
+\entry{Research Assistant, Trimodal AI Lab}{Mar 2026 -- May 2026}
+North South University, Dhaka. Contract, on-site, academic research.
+\begin{itemize}
+  \item Worked on multimodal and agentic AI systems under faculty supervision: reading the
+    literature, testing ideas and building prototypes.
+  \item Ran experiments with other lab members and wrote up the results. In the lab since 2025.
+\end{itemize}
+
+%-------------------------------- PUBLICATIONS ---------------------------------
+\section{Publications}
+\entry{Closed-Book Knowledge Base Construction with Calibrated Abstention and Numeric Self-Consistency}{Accepted}
+Tanvir Ahmed. \textit{LM-KBC 2026 shared task (5th edition), AKBC at EMNLP 2026.}\\
+Beats the official baseline on five of the six relations, with no retrieval and no fine-tuning.\\
+Code: \href{https://github.com/minhaz-42/lm-kbc-2026}{github.com/minhaz-42/lm-kbc-2026}
+
+%---------------------------------- PROJECTS -----------------------------------
+% PLACEHOLDERS: send me what each one does, its stack and any link, and these
+% three lines get replaced. The lengths here match what will fit on one page.
+\section{Projects}
+\begin{itemize}
+  \item \textbf{Shadora} (2026). \textit{[what it does, in one sentence -- details to come.]}
+    \textit{[stack.]}
+  \item \textbf{Dishai} (2026). \textit{[what it does, in one sentence -- details to come.]}
+    \textit{[stack.]}
+  \item \textbf{Uthan} (2026). \textit{[what it does, in one sentence -- details to come.]}
+    \textit{[stack.]}
+\end{itemize}
+
+%------------------------------- TECHNICAL SKILLS ------------------------------
+\section{Technical Skills}
+\textbf{Languages:} Python, Java, JavaScript, TypeScript, C/C++, PHP, SQL, HTML, CSS, LaTeX\\
+\textbf{Machine learning:} Computer vision, NLP, LLMs, vision-language models, calibration, quantum ML\\
+\textbf{Frameworks:} PyTorch, PyTorch Geometric, scikit-learn, Transformers, OpenCV, CLIP, PennyLane\\
+\textbf{Software and systems:} Django, React, Node.js, REST APIs, Docker, CI/CD, SQL, Git, Linux, STM32
+
+%---------------------------------- REFERENCES ---------------------------------
+\section{References}
+\begingroup\raggedright
+\noindent\textbf{Md Tanvir Ahmad Palash}, Group Chief Technology Officer, GoZayaan.
+\href{mailto:tanvir.palash@gozayaan.com}{tanvir.palash@gozayaan.com}\\
+\textbf{Dr.\ Md.\ Adnan Arefeen}, Assistant Professor, Dept.\ of ECE, NSU.
+\href{mailto:adnan.arefeen@northsouth.edu}{adnan.arefeen@northsouth.edu}
+\par\endgroup
+
+\end{document}
