@@ -9,7 +9,7 @@
 % Build: ./build-cv.sh   (pdflatex, two passes, builds all three CVs)
 %-------------------------------------------------------------------------------
 \documentclass[10pt,letterpaper]{article}
-\usepackage[margin=0.7in]{geometry}
+\usepackage[margin=0.68in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{XCharter}
 \usepackage{microtype}
@@ -25,9 +25,9 @@
 \hypersetup{pdftitle={Tanvir Ahmed - Curriculum Vitae}, pdfauthor={Tanvir Ahmed}}
 
 \titleformat{\section}{\large\bfseries\scshape}{}{0em}{}[{\vspace{3pt}\titlerule[0.7pt]}]
-\titlespacing*{\section}{0pt}{11pt}{6pt}
+\titlespacing*{\section}{0pt}{10pt}{5pt}
 \setlist[itemize]{leftmargin=1.3em, itemsep=3pt, topsep=4pt, parsep=0pt}
-\setlength{\parskip}{4pt}
+\setlength{\parskip}{3.5pt}
 \setlength{\parindent}{0pt}
 \setlength{\emergencystretch}{3em}
 
@@ -36,7 +36,7 @@
     \textbf{#1} & #2
   \end{tabular*}\par\vspace{1pt}}
 \newcommand{\entry}[2]{\entryhead{#1}{\textbf{#2}}}
-\newcommand{\gap}{\par\vspace{5pt}}
+\newcommand{\gap}{\par\vspace{4pt}}
 
 \begin{document}
 
@@ -55,9 +55,8 @@
 
 \vspace{6pt}
 \noindent
-I am a final-year Computer Science and Engineering student at North South University, working on
-multimodal machine learning. One accepted paper, more under review, and three months as a research
-assistant at the NSU Trimodal AI Lab.
+Final-year Computer Science and Engineering student at North South University, working on
+multimodal machine learning.
 
 %---------------------------------- EDUCATION ----------------------------------
 \section{Education}
@@ -74,16 +73,16 @@ Milestone College, Dhaka. GPA: \mbox{\textbf{5.00 / 5.00}}
 \entry{Research Assistant, Trimodal AI Lab}{Mar 2026 -- May 2026}
 North South University, Dhaka. Contract, on-site, academic research.
 \begin{itemize}
-  \item Worked on multimodal and agentic AI systems under faculty supervision: reading the
-    literature, testing ideas and building prototypes.
-  \item Ran experiments with other lab members and wrote up the results. In the lab since 2025.
+  \item Worked on multimodal and agentic AI systems under faculty supervision: the literature,
+    experiments and prototypes.
+  \item Ran experiments with lab members and wrote up the results. In the lab since 2025.
 \end{itemize}
 
 %-------------------------------- PUBLICATIONS ---------------------------------
 \section{Publications}
 \entry{Closed-Book Knowledge Base Construction with Calibrated Abstention and Numeric Self-Consistency}{Accepted}
-Tanvir Ahmed. \textit{LM-KBC 2026 shared task (5th edition), AKBC at EMNLP 2026.}\\
-Beats the official baseline on five of the six relations, with no retrieval and no fine-tuning.\\
+Tanvir Ahmed. \textit{LM-KBC 2026 shared task (5th edition), AKBC at EMNLP 2026.} Beats the
+official baseline on five of six relations.
 Code: \href{https://github.com/minhaz-42/lm-kbc-2026}{github.com/minhaz-42/lm-kbc-2026}
 
 %---------------------------------- PROJECTS -----------------------------------
@@ -91,28 +90,37 @@ Code: \href{https://github.com/minhaz-42/lm-kbc-2026}{github.com/minhaz-42/lm-kb
 % three lines get replaced. The lengths here match what will fit on one page.
 \section{Projects}
 \begin{itemize}
-  \item \textbf{Shadora} (2026). \textit{[what it does, in one sentence -- details to come.]}
-    \textit{[stack.]}
-  \item \textbf{Dishai} (2026). \textit{[what it does, in one sentence -- details to come.]}
-    \textit{[stack.]}
-  \item \textbf{Uthan} (2026). \textit{[what it does, in one sentence -- details to come.]}
-    \textit{[stack.]}
+  \item \textbf{Shadora} (2026). Cooking companion: tell it what is in your kitchen and it finds
+    what you can cook now, what needs one or two more things, and which single purchase unlocks the
+    most, by exact arithmetic rather than a match percentage. 505 original recipes, step-by-step
+    cooking with timers, allergens as hard rules. \textit{Next.js 16, React 19, TypeScript,
+    PostgreSQL, Drizzle, Capacitor.} \href{https://kitchensketch.vercel.app}{kitchensketch.vercel.app}
+  \item \textbf{Dishari} (2026). Bilingual English and Bangla guide to bank accounts, credit cards
+    and card offers in Bangladesh. Every fee and rule carries the issuer's own document, page,
+    wording and dates; a deterministic matcher explains fit, and calculators give real yearly costs.
+    \textit{Next.js 16, React 19, TypeScript, PostgreSQL, Drizzle, Playwright.}
 \end{itemize}
 
 %------------------------------- TECHNICAL SKILLS ------------------------------
 \section{Technical Skills}
 \textbf{Languages:} Python, Java, JavaScript, TypeScript, C/C++, PHP, SQL, HTML, CSS, LaTeX\\
-\textbf{Machine learning:} Computer vision, NLP, LLMs, vision-language models, calibration, quantum ML\\
-\textbf{Frameworks:} PyTorch, PyTorch Geometric, scikit-learn, Transformers, OpenCV, CLIP, PennyLane\\
-\textbf{Software and systems:} Django, React, Node.js, REST APIs, Docker, CI/CD, SQL, Git, Linux, STM32
+\textbf{Machine learning:} Computer vision, NLP, LLMs, PyTorch, Transformers, OpenCV, CLIP\\
+\textbf{Software and systems:} Next.js, React, Django, Node.js, PostgreSQL, Docker, CI/CD, Git, Linux
 
 %---------------------------------- REFERENCES ---------------------------------
 \section{References}
-\begingroup\raggedright
-\noindent\textbf{Md Tanvir Ahmad Palash}, Group Chief Technology Officer, GoZayaan.
-\href{mailto:tanvir.palash@gozayaan.com}{tanvir.palash@gozayaan.com}\\
-\textbf{Dr.\ Md.\ Adnan Arefeen}, Assistant Professor, Dept.\ of ECE, NSU.
+\noindent
+\begin{minipage}[t]{0.48\textwidth}
+\raggedright
+\textbf{Md Tanvir Ahmad Palash}\\
+Group Chief Technology Officer, GoZayaan\\
+\href{mailto:tanvir.palash@gozayaan.com}{tanvir.palash@gozayaan.com}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\raggedright
+\textbf{Dr.\ Md.\ Adnan Arefeen}\\
+Assistant Professor, Dept.\ of ECE, NSU\\
 \href{mailto:adnan.arefeen@northsouth.edu}{adnan.arefeen@northsouth.edu}
-\par\endgroup
+\end{minipage}
 
 \end{document}
